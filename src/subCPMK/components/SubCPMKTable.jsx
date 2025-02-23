@@ -27,7 +27,22 @@ const SubCPMKTable = ({ subCPMKDataList
     <Layouts.ListComponentTableLayout
   	  items={[subCPMKDataList]}
   	  detail={detail}
+  	  isSearchable
   	  itemsAttrs={[
+  		{
+            id: "kode",
+            condition: "isHeading",
+            label: "Kode",
+            featureName: "kode",
+  		}
+  ,
+  		{
+            id: "deskripsi",
+            condition: "isHeading",
+            label: "Deskripsi",
+            featureName: "deskripsi",
+  		}
+  ,
   		{
             id: "cPMK",
             condition: "isHeading",

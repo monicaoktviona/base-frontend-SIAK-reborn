@@ -71,6 +71,36 @@ const ModifiedFormTambahSubCPMK = ({
 		  formFields={[
 			  
 			  <Controller
+		        name="kode"
+		        control={control}
+		        render={({ field, fieldState }) => (
+				  <InputField
+		            label="Kode"
+		            placeholder="Masukkan kode"
+		            fieldState={fieldState}
+					{...field}
+					isRequired={false}
+		          />
+		        )}
+		      />
+	,
+			  
+			  <Controller
+		        name="deskripsi"
+		        control={control}
+		        render={({ field, fieldState }) => (
+				  <InputField
+		            label="Deskripsi"
+		            placeholder="Masukkan deskripsi"
+		            fieldState={fieldState}
+					{...field}
+					isRequired={false}
+		          />
+		        )}
+		      />
+	,
+			  
+			  <Controller
 		        name="bobot"
 		        control={control}
 		        render={({ field, fieldState }) => (

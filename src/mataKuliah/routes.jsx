@@ -13,7 +13,7 @@ import UbahMataKuliahPage from './containers/UbahMataKuliahPage'
 const mataKuliahRoutes = [
 { 
 	path: "/matakuliah/tambah",
-	element: <RequireAuth permissionNeeded="ReadRencanaStudiMe" ><TambahMataKuliahPage/></RequireAuth>
+	element: <TambahMataKuliahPage />,
 }
 
 	
@@ -34,7 +34,7 @@ const mataKuliahRoutes = [
 ,
 { 
 	path: "/matakuliah/:id",
-	element: <DetailMataKuliahPage />,
+	element: <RequireAuth permissionNeeded="ReadLaporanCPMK" ><DetailMataKuliahPage/></RequireAuth>
 }
 
 	

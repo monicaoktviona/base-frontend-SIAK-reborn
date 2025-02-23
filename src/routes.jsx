@@ -4,23 +4,23 @@ import userRoutes from "@/user/routes";
 import roleRoutes from "@/role/routes";
 import staticPageRoutes from "@/staticPage/routes";
 import homeRoutes from "@/home/routes";
-import penilaianKelasRoutes from "@/penilaianKelas/routes";
-import mataKuliahRoutes from "@/mataKuliah/routes";
-import kelasRoutes from "@/kelas/routes";
 import ringkasanAkademisRoutes from "@/ringkasanAkademis/routes";
 import riwayatAkademisRoutes from "@/riwayatAkademis/routes";
-import cPLRoutes from "@/cPL/routes";
-import laporanCPLRoutes from "@/laporanCPL/routes";
-import semesterRoutes from "@/semester/routes";
 import cPMKRoutes from "@/cPMK/routes";
 import subCPMKRoutes from "@/subCPMK/routes";
 import laporanCPMKRoutes from "@/laporanCPMK/routes";
 import programStudiRoutes from "@/programStudi/routes";
+import kurikulumRoutes from "@/kurikulum/routes";
+import semesterRoutes from "@/semester/routes";
+import pembayaranRoutes from "@/pembayaran/routes";
+import cPLRoutes from "@/cPL/routes";
+import laporanCPLRoutes from "@/laporanCPL/routes";
+import penilaianKelasRoutes from "@/penilaianKelas/routes";
 import lihatIRSRoutes from "@/lihatIRS/routes";
 import isiUbahIRSRoutes from "@/isiUbahIRS/routes";
 import pengaturanPengisianIRSRoutes from "@/pengaturanPengisianIRS/routes";
-import pembayaranRoutes from "@/pembayaran/routes";
-import kurikulumRoutes from "@/kurikulum/routes";
+import kelasRoutes from "@/kelas/routes";
+import mataKuliahRoutes from "@/mataKuliah/routes";
 
 const GlobalRoutes = () => {
   const router = useRoutes([
@@ -29,23 +29,23 @@ const GlobalRoutes = () => {
 	...userRoutes,
 	...roleRoutes,
 	...homeRoutes, 
-	...penilaianKelasRoutes, 
-	...mataKuliahRoutes, 
-	...kelasRoutes, 
 	...ringkasanAkademisRoutes, 
 	...riwayatAkademisRoutes, 
-	...cPLRoutes, 
-	...laporanCPLRoutes, 
-	...semesterRoutes, 
 	...cPMKRoutes, 
 	...subCPMKRoutes, 
 	...laporanCPMKRoutes, 
 	...programStudiRoutes, 
+	...kurikulumRoutes, 
+	...semesterRoutes, 
+	...pembayaranRoutes, 
+	...cPLRoutes, 
+	...laporanCPLRoutes, 
+	...penilaianKelasRoutes, 
 	...lihatIRSRoutes, 
 	...isiUbahIRSRoutes, 
 	...pengaturanPengisianIRSRoutes, 
-	...pembayaranRoutes, 
-	...kurikulumRoutes, 
+	...kelasRoutes, 
+	...mataKuliahRoutes, 
   ])
   return router
 }

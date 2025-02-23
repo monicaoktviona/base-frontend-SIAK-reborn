@@ -9,62 +9,60 @@ import * as Layouts from '@/commons/layouts';
 import { Link, useParams } from 'react-router-dom'
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from 'react-router-dom';
-import FormTambahMataKuliah from '../components/FormTambahMataKuliah'
+import ModifiedFormTambahSubCPMK from '../components/ModifiedFormTambahSubCPMK'
 
-import getKurikulum from '../services/getKurikulum'
-const TambahMataKuliahPage = props => {
+import getCPMK from '../services/getCPMK'
+const TambahSubCPMKPage = props => {
 const [isLoading, setIsLoading] = useState({
-	tambahMataKuliah: false,
+	tambahSubCPMK: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
-const [kurikulum, setKurikulum] = useState()
+const [cPMK, setCPMK] = useState()
 
 useEffect(() => {
     const fetch = async () => {
-	  setIsLoading(prev => ({...prev, tambahMataKuliah: true}))
-		const { data: kurikulumResponse } = await getKurikulum({  })
+	  setIsLoading(prev => ({...prev, tambahSubCPMK: true}))
+		const { data: cPMKResponse } = await getCPMK({  })
 
-	    setKurikulum(kurikulumResponse.data)
+	    setCPMK(cPMKResponse.data)
 
 
-	    setIsLoading(prev => ({...prev, tambahMataKuliah: false}))
+	    setIsLoading(prev => ({...prev, tambahSubCPMK: false}))
     }
     fetch()
   }, [])
 
 	
 	useEffect(() => {
-		setTitle("Tambah Mata Kuliah Page")
+		setTitle("Tambah SubCPMK Page")
 	}, []);
 return (
 	<Layouts.ViewContainerLayout
 		buttons={
 			<>
 			<Layouts.ViewContainerBackButtonLayout>
-			  	{checkPermission("ReadRencanaStudiMe") &&  (
-			  	  <Link to={`/matakuliah
-			  	  `}>	<Button className="p-4" variant="secondary">
-			  	  	  Kembali
-			  	  	</Button>
-			  	  </Link>
-			  	  
-			  	)}
+			  	<Link to={`/subcpmk
+			  	`}>	<Button className="p-4" variant="secondary">
+			  		  Kembali
+			  		</Button>
+			  	</Link>
+			  	
 			  	
 			  </Layouts.ViewContainerBackButtonLayout>
 			</>
 		}
 	>
 <Layouts.FormContainerLayout
-		singularName={"Mata"}
-		isLoading={isLoading.tambahMataKuliah}
+		singularName={"SubCPMK"}
+		isLoading={isLoading.tambahSubCPMK}
 	>
-		{kurikulum ? 
+		{cPMK ? 
 		(<>
-		 <FormTambahMataKuliah
+		 <ModifiedFormTambahSubCPMK
 			{...{ 
-				kurikulum
+				cPMK
 				}}
 		 /> 
 		</>)  : (<></>)}
@@ -73,5 +71,5 @@ return (
 	</Layouts.ViewContainerLayout>
   )
 }
-export default TambahMataKuliahPage
+export default TambahSubCPMKPage
 

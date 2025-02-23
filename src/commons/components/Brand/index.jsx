@@ -10,7 +10,7 @@ const Brand = ({ onCLick, isMobileFirst }) => {
       onClick={onCLick}
       className={className}
     >
-      Subcpmk Generated
+      Base Frontend
     </Link>
   )
 }

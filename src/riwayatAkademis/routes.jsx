@@ -18,7 +18,7 @@ const riwayatAkademisRoutes = [
 ,
 { 
 	path: "/akademis/riwayat/:id",
-	element: <RequireAuth permissionNeeded="ReadLaporanCPL" ><DetailPenilaianMahasiswaPage/></RequireAuth>
+	element: <RequireAuth permissionNeeded="ReadKelasMahasiswaMe" ><DetailPenilaianMahasiswaPage/></RequireAuth>
 }
 
 	

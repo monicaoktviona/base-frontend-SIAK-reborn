@@ -6,9 +6,9 @@
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
 import * as Layouts from '@/commons/layouts';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from "react-router";
 import { HeaderContext } from "@/commons/components"
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from "react-router";
 import FormUbahKomponenPenilaian from '../components/FormUbahKomponenPenilaian'
 
 import getKomponenPenilaianUbah from '../services/getKomponenPenilaianUbah'
@@ -20,14 +20,14 @@ const [isLoading, setIsLoading] = useState({
 	const { setTitle } = useContext(HeaderContext);
 
 const [searchParams] = useSearchParams()
-const id = searchParams.get('id')
 const kelasId = searchParams.get('kelasId')
+const id = searchParams.get('id')
 const [komponenPenilaianUbah, setKomponenPenilaianUbah] = useState()
 
 useEffect(() => {
     const fetch = async () => {
 	  setIsLoading(prev => ({...prev, ubahKomponenPenilaian: true}))
-		const { data: komponenPenilaianUbahResponse } = await getKomponenPenilaianUbah({ id  })
+		const { data: komponenPenilaianUbahResponse } = await getKomponenPenilaianUbah({ kelasId  })
 
 	    setKomponenPenilaianUbah(komponenPenilaianUbahResponse.data)
 
@@ -46,7 +46,9 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerBackButtonLayout>
-			  	<Link to={`/penilaian-kelas/${id}`}>	<Button className="p-4" variant="secondary">
+			  	<Link to={`/penilaian-kelas/:id
+			  	`}>
+			  		<Button className="p-4" variant="secondary">
 			  		  Kembali
 			  		</Button>
 			  	</Link>

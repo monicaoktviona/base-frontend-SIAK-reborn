@@ -34,7 +34,7 @@ const kurikulumRoutes = [
 ,
 { 
 	path: "/kurikulum/:id",
-	element: <DetailKurikulumPage />,
+	element: <RequireAuth permissionNeeded="ReadLaporanCPL" ><DetailKurikulumPage/></RequireAuth>
 }
 
 	

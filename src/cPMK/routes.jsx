@@ -3,9 +3,8 @@
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.5.10
 */
-import RequireAuth from '@/commons/auth/RequireAuth'
+import React from 'react';
 
-import DetailCPMKPage from './containers/DetailCPMKPage'
 import DaftarCPMKPage from './containers/DaftarCPMKPage'
 import DetailCPMKPage from './containers/DetailCPMKPage'
 import TambahCPMKPage from './containers/TambahCPMKPage'
@@ -17,10 +16,6 @@ const cPMKRoutes = [
 		element: <DaftarCPMKPage />,
 	},
 	{ 
-		path: "/cpmk/:id",
-		element: <DetailCPMKPage />,
-	},
-	{ 
 		path: "/cpmk/tambah",
 		element: <TambahCPMKPage />,
 	},
@@ -29,7 +24,7 @@ const cPMKRoutes = [
 		element: <UbahCPMKPage />,
 	},
 	{ 
-		path: "",
+		path: "/cpmk/:id",
 		element: <DetailCPMKPage />,
 	}
 ]

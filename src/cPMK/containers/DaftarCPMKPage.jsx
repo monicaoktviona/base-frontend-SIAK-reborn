@@ -54,13 +54,15 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
-			  	<Link to={`/cpmk/tambah
-			  	`}>
-			  		<Button className="p-2" variant="primary">
-			  		  Tambah CPMK
-			  		</Button>
-			  	</Link>
-			  	
+			  	{checkPermission("ReadRencanaStudiMe") &&  (
+			  	  <Link to={`/cpmk/tambah
+			  	  `}>
+			  	  	<Button className="p-2" variant="primary">
+			  	  	  Tambah CPMK
+			  	  	</Button>
+			  	  </Link>
+			  	  
+			  	)}
 			  	
 			
 			  </Layouts.ViewContainerButtonLayout>

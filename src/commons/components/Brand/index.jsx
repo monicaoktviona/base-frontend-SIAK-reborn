@@ -10,7 +10,7 @@ const Brand = ({ onCLick, isMobileFirst }) => {
       onClick={onCLick}
       className={className}
     >
-      Cpmk Fixed
+      Base Frontend 2025
     </Link>
   )
 }

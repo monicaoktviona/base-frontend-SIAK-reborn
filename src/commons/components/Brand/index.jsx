@@ -10,7 +10,7 @@ const Brand = ({ onCLick, isMobileFirst }) => {
       onClick={onCLick}
       className={className}
     >
-      Obe Module 2025
+      Base Frontend 2025
     </Link>
   )
 }

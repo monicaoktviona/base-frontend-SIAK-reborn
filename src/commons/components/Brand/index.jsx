@@ -10,7 +10,7 @@ const Brand = ({ onCLick, isMobileFirst }) => {
       onClick={onCLick}
       className={className}
     >
-      Capaian Cpl Cpmk Generated
+      Base Frontend 2025
     </Link>
   )
 }

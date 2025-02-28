@@ -11,6 +11,8 @@ import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
 import LaporanTable from "../components/LaporanTable";
+
+import getLaporanCPLDataList from '../services/getLaporanCPLDataList'
 const LaporanCPLPage = props => {
 const { checkPermission } = useAuth();
 
@@ -20,10 +22,13 @@ const { checkPermission } = useAuth();
 	});
 	const { setTitle } = useContext(HeaderContext);
 
+const [laporanCPLDataList, setLaporanCPLDataList] = useState()
 useEffect(() => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({...prev, dataLaporanCPL: true}))
+				const { data: laporanCPLDataList } = await getLaporanCPLDataList()
+				setLaporanCPLDataList(laporanCPLDataList.data)
 			} finally {
 				setIsLoading(prev => ({...prev, dataLaporanCPL: false}))
 			}
@@ -46,10 +51,11 @@ return (
 <Layouts.ListContainerTableLayout
 	title={"Data Laporan CPL"}
 	singularName={"Laporan"}
-	items={[]}
+	items={[laporanCPLDataList]}
 	isLoading={isLoading.dataLaporanCPL}
 >
 	<LaporanTable
+		laporanCPLDataList={laporanCPLDataList}
 		
 	/>
 </Layouts.ListContainerTableLayout>

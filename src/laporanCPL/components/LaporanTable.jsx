@@ -11,16 +11,29 @@ import { Button, Modal } from '@/commons/components';
 
 import * as Layouts from "@/commons/layouts";
 
-const LaporanTable = ({ 
+const LaporanTable = ({ laporanCPLDataList
 	}) => {
   const { checkPermission } = useAuth();
   
   
   return (
     <Layouts.ListComponentTableLayout
-  	  items={[]}
+  	  items={[laporanCPLDataList]}
   	  isSearchable
   	  itemsAttrs={[
+  		{
+            id: "kode",
+            condition: "isHeading",
+            label: "Kode",
+            featureName: "kode",
+  		}
+  ,
+  		{
+            id: "mataKuliah",
+            condition: "isHeading",
+            label: "Mata Kuliah",
+            featureName: "nama",
+  		}
   	  ]}
   	/>
   )

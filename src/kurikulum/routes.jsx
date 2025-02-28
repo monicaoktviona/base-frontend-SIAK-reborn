@@ -3,8 +3,8 @@
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.5.10
 */
-import RequireAuth from '@/commons/auth/RequireAuth'
-
+import RequireAuth from "@/commons/auth/RequireAuth";
+import React from 'react';
 import DaftarKurikulumPage from './containers/DaftarKurikulumPage'
 import DetailKurikulumPage from './containers/DetailKurikulumPage'
 import UbahKurikulumPage from './containers/UbahKurikulumPage'
@@ -34,7 +34,7 @@ const kurikulumRoutes = [
 ,
 { 
 	path: "/kurikulum/:id",
-	element: <DetailKurikulumPage />,
+	element: <RequireAuth permissionNeeded="ReadLaporanCPL" ><DetailKurikulumPage/></RequireAuth>
 }
 
 	

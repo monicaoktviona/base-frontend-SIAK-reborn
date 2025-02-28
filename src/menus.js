@@ -38,6 +38,12 @@ export const settingsMenu = [
   
 export default menus
 addMenu({
+	route: '/kurikulum',
+    label: 'Kurikulum',
+	subMenus: []
+})
+
+addMenu({
 	route: '#',
     label: 'CPL',
 	subMenus: []
@@ -47,6 +53,24 @@ addSubMenu('CPL', {
 	route: '/cpl',
 	label: 'CPL',
 	
+})
+
+addSubMenu('CPL', {
+	route: '/cpl/laporan',
+	label: 'Laporan CPL',
+	
+})
+
+addMenu({
+	route: '/penilaian-kelas',
+    label: 'Penilaian Kelas',
+	subMenus: []
+})
+
+addMenu({
+	route: '/pembayaran',
+    label: 'Pembayaran',
+	subMenus: []
 })
 
 addMenu({
@@ -68,36 +92,6 @@ addSubMenu('Akademis', {
 })
 
 addMenu({
-	route: '/kelas',
-    label: 'Kelas',
-	subMenus: []
-})
-
-addMenu({
-	route: '/semester',
-    label: 'Semester',
-	subMenus: []
-})
-
-addMenu({
-	route: '/matakuliah',
-    label: 'Mata Kuliah',
-	subMenus: []
-})
-
-addMenu({
-	route: '/programstudi',
-    label: 'Program Studi',
-	subMenus: []
-})
-
-addMenu({
-	route: '/pembayaran',
-    label: 'Pembayaran',
-	subMenus: []
-})
-
-addMenu({
 	route: '#',
     label: 'CPMK',
 	subMenus: []
@@ -112,6 +106,12 @@ addSubMenu('CPMK', {
 addSubMenu('CPMK', {
 	route: '/subcpmk',
 	label: 'Sub-CPMK',
+	
+})
+
+addSubMenu('CPMK', {
+	route: '/cpmk/laporan',
+	label: 'Laporan CPMK',
 	
 })
 
@@ -140,13 +140,25 @@ addSubMenu('IRS', {
 })
 
 addMenu({
-	route: '/kurikulum',
-    label: 'Kurikulum',
+	route: '/kelas',
+    label: 'Kelas',
 	subMenus: []
 })
 
 addMenu({
-	route: '/penilaian-kelas',
-    label: 'Penilaian Kelas',
+	route: '/matakuliah',
+    label: 'Mata Kuliah',
+	subMenus: []
+})
+
+addMenu({
+	route: '/programstudi',
+    label: 'Program Studi',
+	subMenus: []
+})
+
+addMenu({
+	route: '/semester',
+    label: 'Semester',
 	subMenus: []
 })

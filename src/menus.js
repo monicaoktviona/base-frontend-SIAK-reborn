@@ -38,27 +38,9 @@ export const settingsMenu = [
   
 export default menus
 addMenu({
-	route: '/kurikulum',
-    label: 'Kurikulum',
+	route: '/kelas',
+    label: 'Kelas',
 	subMenus: []
-})
-
-addMenu({
-	route: '#',
-    label: 'CPL',
-	subMenus: []
-})
-
-addSubMenu('CPL', {
-	route: '/cpl',
-	label: 'CPL',
-	
-})
-
-addSubMenu('CPL', {
-	route: '/cpl/laporan',
-	label: 'Laporan CPL',
-	
 })
 
 addMenu({
@@ -68,8 +50,14 @@ addMenu({
 })
 
 addMenu({
-	route: '/pembayaran',
-    label: 'Pembayaran',
+	route: '/matakuliah',
+    label: 'Mata Kuliah',
+	subMenus: []
+})
+
+addMenu({
+	route: '/semester',
+    label: 'Semester',
 	subMenus: []
 })
 
@@ -89,6 +77,18 @@ addSubMenu('Akademis', {
 	route: '/akademis/riwayat',
 	label: 'Riwayat',
 	
+})
+
+addMenu({
+	route: '/kurikulum',
+    label: 'Kurikulum',
+	subMenus: []
+})
+
+addMenu({
+	route: '/pembayaran',
+    label: 'Pembayaran',
+	subMenus: []
 })
 
 addMenu({
@@ -140,25 +140,25 @@ addSubMenu('IRS', {
 })
 
 addMenu({
-	route: '/kelas',
-    label: 'Kelas',
-	subMenus: []
-})
-
-addMenu({
-	route: '/matakuliah',
-    label: 'Mata Kuliah',
-	subMenus: []
-})
-
-addMenu({
 	route: '/programstudi',
     label: 'Program Studi',
 	subMenus: []
 })
 
 addMenu({
-	route: '/semester',
-    label: 'Semester',
+	route: '#',
+    label: 'CPL',
 	subMenus: []
+})
+
+addSubMenu('CPL', {
+	route: '/cpl',
+	label: 'CPL',
+	
+})
+
+addSubMenu('CPL', {
+	route: '/cpl/laporan',
+	label: 'Laporan CPL',
+	
 })

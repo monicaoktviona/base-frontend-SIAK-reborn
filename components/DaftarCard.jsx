@@ -4,7 +4,7 @@
 	version 3.5.10
 */
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from "react-router";
 
 import { useAuth } from '@/commons/auth'
 import { Button } from '@/commons/components';

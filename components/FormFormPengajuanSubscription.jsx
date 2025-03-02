@@ -5,7 +5,7 @@
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router";
 import {
   Button,
   Form,
@@ -73,6 +73,7 @@ const FormFormPengajuanSubscription = ({
 	
 		  
 		  <Controller
+		    key="idSubscriptionPlan"
 	        name="idSubscriptionPlan"
 	        control={control}
 	        render={({ field, fieldState }) => (
@@ -90,7 +91,7 @@ const FormFormPengajuanSubscription = ({
 		  ]}
 	
 		  itemsEvents={[
-				<Button type="submit" variant="primary">Submit</Button>
+				<Button key="Submit" type="submit" variant="primary">Submit</Button>
 	    ]}
 	  />
   )

@@ -9,7 +9,7 @@ const updateRencanaStudi = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.put(`${environment.rootApi}/call/rencanastudi/pengisian-aktif/update`, body,
+	return axios.put(`${environment.rootApi}/call/rencanastudi/update`, body,
 	{
 		params: { token },
 		

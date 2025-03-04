@@ -1,7 +1,7 @@
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.10
 */
 import RequireAuth from '@/commons/auth/RequireAuth'
 
@@ -11,26 +11,22 @@ import TambahCPLPage from './containers/TambahCPLPage'
 import UbahCPLPage from './containers/UbahCPLPage'
 
 const cPLRoutes = [
-{ 
-	path: "/cpl/tambah",
-	element: <RequireAuth permissionNeeded="CreateCPL" ><TambahCPLPage/></RequireAuth>
-}	
-,
-{ 
-	path: "/cpl/ubah",
-	element: <RequireAuth permissionNeeded="UpdateCPL" ><UbahCPLPage/></RequireAuth>
-}	
-,
-{ 
-	path: "/cpl",
-	element: <RequireAuth permissionNeeded="ReadCPL" ><DaftarCPLPage/></RequireAuth>
-}	
-,
-{ 
-	path: "/cpl/:id",
-	element: <RequireAuth permissionNeeded="ReadCPL" ><DetailCPLPage/></RequireAuth>
-}	
-
+	{ 
+		path: "/cpl",
+		element: <DaftarCPLPage />,
+	},
+	{ 
+		path: "/cpl/:id",
+		element: <DetailCPLPage />,
+	},
+	{ 
+		path: "/cpl/tambah",
+		element: <TambahCPLPage />,
+	},
+	{ 
+		path: "/cpl/ubah",
+		element: <UbahCPLPage />,
+	}
 ]
 
 export default cPLRoutes

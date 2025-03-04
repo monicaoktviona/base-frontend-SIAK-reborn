@@ -1,20 +1,16 @@
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.5.5
 */
-import RequireAuth from '@/commons/auth/RequireAuth'
-
-import LihatIRSPage from './containers/LihatIRSPage'
+import React from "react";
+import LihatIRSPage from "./containers/LihatIRSPage";
 
 const lihatIRSRoutes = [
-{ 
-	path: "/irs/ringkasan",
-	element: <LihatIRSPage />,
-}
+  {
+    path: "/irs/ringkasan",
+    element: <LihatIRSPage />,
+  },
+];
 
-	
-
-]
-
-export default lihatIRSRoutes
+export default lihatIRSRoutes;

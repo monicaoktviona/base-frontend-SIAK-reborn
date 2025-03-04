@@ -1,17 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { Spinner } from "@/commons/components";
 
-const DetailContainerLayout = ({ title, isLoading, items, children }) => {
+const DetailContainerLayout = ({
+  title,
+  singularName,
+  isLoading,
+  items,
+  children,
+  isCorrelatedWithAnotherComponent,
+}) => {
   return (
-    <div className="container mx-auto">
-      <h2 className="text-center sm:text-left">{title}</h2>
+    <div className={`prose ${isCorrelatedWithAnotherComponent ? 'w-full max-w-screen-xl' : 'max-w-screen-lg'} mx-auto`}>
       {isLoading ? (
         <div className={"py-8 text-center"}>
           <Spinner />
         </div>
       ) : Object.keys(items).length ? (
-        children
+        <>
+          <div className='flex flex-row items-center justify-between m-2'>
+            <h2 className='my-7'>{title}</h2>
+          </div>
+          {children}
+        </>
       ) : (
         <div className="py-8 text-center">
           Tidak ada detail data untuk ditampilkan
@@ -19,14 +30,6 @@ const DetailContainerLayout = ({ title, isLoading, items, children }) => {
       )}
     </div>
   );
-};
-
-DetailContainerLayout.propTypes = {
-  title: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  items: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-  isCorrelatedWithAnotherComponent: PropTypes.bool,
 };
 
 export default DetailContainerLayout;

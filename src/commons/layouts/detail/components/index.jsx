@@ -18,7 +18,7 @@ const DetailComponentLayout = ({
             />
           )
         )}
-        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-x-4">
+        <div className="flex flex-col sm:grid sm:grid-cols-2">
           {itemsAttrs?.map(va => !va.label.match("Gambar") &&
             (
               <VisualizationAttr

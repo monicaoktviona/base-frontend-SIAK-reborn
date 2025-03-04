@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from ".";
-import { Navigate, useLocation } from "react-router";
+import { Navigate, useLocation } from "react-router-dom";
 
 function RequireAuth({ permissionNeeded, children }) {
   const { permissions, isAuthenticated } = useAuth();

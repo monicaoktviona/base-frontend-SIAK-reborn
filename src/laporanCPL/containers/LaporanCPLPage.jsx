@@ -1,33 +1,33 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 13/06/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.4.0
 */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router";
+import isSelectedFeature from "@/commons/utils/isSelectedFeature";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/commons/auth";
-import LaporanTable from "../components/LaporanTable";
-import SelectionFieldReport from "@/commons/components/Form/SelectionFieldReport";
+import LaporanCPLTable from "../components/LaporanTable";
 import { BarChart } from "@/commons/Chart/BarChart";
+
+import getLaporanCPLDataList from "../services/getLaporanCPLDataList";
 import getKurikulumDataList from "@/laporanCPL/services/getKurikulumDataList";
 import getAverageCPLDataList from "@/laporanCPL/services/getAverageCPLDataList";
-import getLaporanCPLDataList from "../services/getLaporanCPLDataList";
+import SelectionFieldReport from "@/commons/components/Form/SelectionFieldReport";
 
 const LaporanCPLPage = (props) => {
   const { checkPermission } = useAuth();
 
   const [isLoading, setIsLoading] = useState({
-    dataLaporanCPL: false,
+    tableLaporanCPL: false,
     kurikulum: false,
     barChart: false,
   });
   const { setTitle } = useContext(HeaderContext);
-
   const [selectedValue, setSelectedValue] = useState();
 
   const [laporanCPLDataList, setLaporanCPLDataList] = useState();
@@ -44,6 +44,7 @@ const LaporanCPLPage = (props) => {
         setIsLoading((prev) => ({ ...prev, kurikulum: false }));
       }
     };
+
     checkPermission("ReadLaporanCPL") && fetchKurikulum();
   }, []);
 
@@ -65,15 +66,17 @@ const LaporanCPLPage = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading((prev) => ({ ...prev, dataLaporanCPL: true }));
-        const { data: laporanCPLDataList } = await getLaporanCPLDataList({kurikulumId: selectedValue});
+        setIsLoading((prev) => ({ ...prev, tableLaporanCPL: true }));
+        const { data: laporanCPLDataList } = await getLaporanCPLDataList({
+          kurikulumId: selectedValue,
+        });
         setLaporanCPLDataList(laporanCPLDataList.data);
       } finally {
-        setIsLoading((prev) => ({ ...prev, dataLaporanCPL: false }));
+        setIsLoading((prev) => ({ ...prev, tableLaporanCPL: false }));
       }
     };
     checkPermission("ReadLaporanCPL") && selectedValue && fetchData();
-  }, []);
+  }, [selectedValue]);
 
   useEffect(() => {
     setTitle("Laporan CPL Page");
@@ -113,7 +116,7 @@ const LaporanCPLPage = (props) => {
           )}
         </>
       )}
-      {isLoading.dataLaporanCPL ? (
+      {isLoading.tableLaporanCPL ? (
         <div className="flex justify-center items-center h-full">
           <Spinner />
         </div>
@@ -127,7 +130,7 @@ const LaporanCPLPage = (props) => {
                 items={[laporanCPLDataList?.mataKuliahList ?? []]}
                 isLoading={isLoading.tableLaporanCPL}
               >
-                <LaporanTable
+                <LaporanCPLTable
                   laporanCPLDataList={laporanCPLDataList?.mataKuliahList ?? []}
                   cplList={laporanCPLDataList?.cplList ?? []}
                 />

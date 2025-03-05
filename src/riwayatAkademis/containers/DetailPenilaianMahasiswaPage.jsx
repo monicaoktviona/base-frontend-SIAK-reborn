@@ -1,18 +1,19 @@
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 13/06/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.4.0
 */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router";
+import isSelectedFeature from "@/commons/utils/isSelectedFeature";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/commons/auth";
 import DetailPenilaianMahasiswa from "../components/DetailPenilaianMahasiswa";
 import getPenilaianDataDetail from "../services/getPenilaianDataDetail";
-import DetailTable from "../components/DetailTable";
+import PenilaianTable from "../components/PenilaianTable";
 
 import getPenilaianMahasiswaDataList from "../services/getPenilaianMahasiswaDataList";
 const DetailPenilaianMahasiswaPage = (props) => {
@@ -20,7 +21,7 @@ const DetailPenilaianMahasiswaPage = (props) => {
 
   const [isLoading, setIsLoading] = useState({
     detailPenilaianMahasiswa: false,
-    tableDetailNilai: false,
+    tablePenilaianMahasiswa: false,
   });
   const { setTitle } = useContext(HeaderContext);
 
@@ -46,12 +47,12 @@ const DetailPenilaianMahasiswaPage = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading((prev) => ({ ...prev, tableDetailNilai: true }));
+        setIsLoading((prev) => ({ ...prev, tablePenilaianMahasiswa: true }));
         const { data: penilaianMahasiswaDataList } =
           await getPenilaianMahasiswaDataList({ kelasId: id });
         setPenilaianMahasiswaDataList(penilaianMahasiswaDataList.data);
       } finally {
-        setIsLoading((prev) => ({ ...prev, tableDetailNilai: false }));
+        setIsLoading((prev) => ({ ...prev, tablePenilaianMahasiswa: false }));
       }
     };
     fetchData();
@@ -60,15 +61,14 @@ const DetailPenilaianMahasiswaPage = (props) => {
   useEffect(() => {
     setTitle("Detail Penilaian Mahasiswa Page");
   }, []);
+
   return (
     <Layouts.ViewContainerLayout
       buttons={
         <>
           <Layouts.ViewContainerBackButtonLayout>
-            <Link
-              to={`/riwayat-akademis
-			  	`}
-            >
+            <Link to={`/riwayat-akademis`}>
+              {" "}
               <Button className="p-4 w-full" variant="secondary">
                 Kembali
               </Button>
@@ -92,9 +92,11 @@ const DetailPenilaianMahasiswaPage = (props) => {
         title={"Detail Nilai"}
         singularName={"Penilaian"}
         items={[penilaianMahasiswaDataList]}
-        isLoading={isLoading.tableDetailNilai}
+        isLoading={isLoading.tablePenilaianMahasiswa}
       >
-        <DetailTable penilaianMahasiswaDataList={penilaianMahasiswaDataList} />
+        <PenilaianTable
+          penilaianMahasiswaDataList={penilaianMahasiswaDataList}
+        />
       </Layouts.ListContainerTableLayout>
     </Layouts.ViewContainerLayout>
   );

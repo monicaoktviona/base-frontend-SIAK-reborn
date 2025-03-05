@@ -1,14 +1,14 @@
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.5.5
 */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/commons/auth";
 import KuliahTable from "../components/KuliahTable";
 
@@ -54,6 +54,7 @@ const DaftarMataKuliahPage = (props) => {
                 to={`/matakuliah/tambah
 			  	`}
               >
+                {" "}
                 <Button className="p-2" variant="primary">
                   Tambah Mata Kuliah
                 </Button>

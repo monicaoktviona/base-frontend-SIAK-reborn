@@ -3,7 +3,7 @@ import Menu, { MenuItem } from "../Menu";
 import Brand from "../Brand";
 import { FiLogOut } from "react-icons/fi";
 import useNavigation from "./useNavigation";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import useAuth from "@/commons/auth";
 
 const Sidebar = () => {

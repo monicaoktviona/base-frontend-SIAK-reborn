@@ -1,13 +1,4 @@
 export { default as Button } from "./Button";
-export {
-  ChartContainer,
-  ChartContext,
-  ChartLegend,
-  ChartLegendContent,
-  ChartStyle,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "./Charts";
 export { default as Detail } from "./Detail";
 export { default as Footer } from "./Footer";
 export { default as Form } from "./Form";
@@ -37,4 +28,3 @@ export { default as Modal } from "./Modal";
 export { default as Spinner } from "./Spinner";
 export { default as VisualizationAttr } from "./VisualizationAttr";
 export { default as ToasterError } from "./Toast/ToastError";
-

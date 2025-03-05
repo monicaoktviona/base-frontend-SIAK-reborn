@@ -41,15 +41,33 @@ export const settingsMenu = [
 ];
 
 export default menus;
+
+// Add menus with permission attributes
 addMenu({
-  route: "/profilealumni",
-  label: "Profile Alumni",
+  route: "/programstudi",
+  label: "Program Studi",
+  permission: "ReadProgramStudi",
   subMenus: [],
 });
 
 addMenu({
-  route: "/buatakunalumni",
-  label: "Buat Akun Alumni",
+  route: "/kurikulum",
+  label: "Kurikulum",
+  permission: "ReadKurikulum",
+  subMenus: [],
+});
+
+addMenu({
+  route: "/semester",
+  label: "Semester",
+  permission: "ReadSemester",
+  subMenus: [],
+});
+
+addMenu({
+  route: "/matakuliah",
+  label: "Mata Kuliah",
+  permission: "ReadMataKuliah",
   subMenus: [],
 });
 
@@ -57,39 +75,6 @@ addMenu({
   route: "/kelas",
   label: "Kelas",
   permission: "ReadKelas",
-  subMenus: [],
-});
-
-addMenu({
-  route: "#",
-  label: "Pengumuman",
-  subMenus: [],
-});
-
-addSubMenu("Pengumuman", {
-  route: "/pengumumanalumni",
-  label: "Pengumuman Alumni",
-});
-
-addSubMenu("Pengumuman", {
-  route: "/pengumumanindustri",
-  label: "Pengumuman Industri",
-});
-
-addSubMenu("Pengumuman", {
-  route: "/pengumumanakademik",
-  label: "Pengumuman Admin Akademik",
-});
-
-addMenu({
-  route: "/profilemahasiswa",
-  label: "Profile Mahasiswa",
-  subMenus: [],
-});
-
-addMenu({
-  route: "/approvalsubscription",
-  label: "Approval Subscription",
   subMenus: [],
 });
 
@@ -110,117 +95,6 @@ addSubMenu("CPL", {
   route: "/cpl/laporan",
   label: "Laporan CPL",
   permission: "ReadLaporanCPL",
-});
-
-addMenu({
-  route: "/programstudi",
-  label: "Program Studi",
-  permission: "ReadProgramStudi",
-  subMenus: [],
-});
-
-addMenu({
-  route: "#",
-  label: "Daftar Pengguna",
-  subMenus: [],
-});
-
-addSubMenu("Daftar Pengguna", {
-  route: "/daftarsemuaalumni",
-  label: "Daftar Semua Alumni",
-});
-
-addSubMenu("Daftar Pengguna", {
-  route: "/daftarsemuamahasiswa",
-  label: "Daftar Semua Mahasiswa",
-});
-
-addSubMenu("Daftar Pengguna", {
-  route: "/daftaralumni",
-  label: "Daftar Alumni",
-});
-
-addSubMenu("Daftar Pengguna", {
-  route: "/daftarmahasiswa",
-  label: "Daftar Mahasiswa",
-});
-
-addSubMenu("Daftar Pengguna", {
-  route: "/daftarindustri",
-  label: "Daftar Industri",
-});
-
-addMenu({
-  route: "/matakuliah",
-  label: "Mata Kuliah",
-  permission: "ReadMataKuliah",
-  subMenus: [],
-});
-
-addMenu({
-  route: "/kurikulum",
-  label: "Kurikulum",
-  permission: "ReadKurikulum",
-  subMenus: [],
-});
-
-addMenu({
-  route: "#",
-  label: "IRS",
-  permission: "ReadRencanaStudiMe",
-  subMenus: [],
-});
-
-addSubMenu("IRS", {
-  route: "/irs/ringkasan",
-  label: "Lihat IRS",
-  permission: "ReadRencanaStudiMe",
-});
-
-addSubMenu("IRS", {
-  route: "/irs/isi",
-  label: "Isi/Ubah IRS",
-  permission: "CreateRencanaStudiMe",
-});
-
-addSubMenu("IRS", {
-  route: "/irs/pengaturan",
-  label: "Pengaturan Pengisian IRS",
-  permission: "UpdatePengisianRencanaStudi",
-});
-
-addMenu({
-  route: "/pengajuansubscription",
-  label: "Pengajuan Subscription",
-  subMenus: [],
-});
-
-addMenu({
-  route: "#",
-  label: "Verifikasi Identitas",
-  subMenus: [],
-});
-
-addSubMenu("Verifikasi Identitas", {
-  route: "/verifikasialumni",
-  label: "Verifikasi Alumni",
-});
-
-addSubMenu("Verifikasi Identitas", {
-  route: "/verifikasimahasiswa",
-  label: "Verifikasi Mahasiswa",
-});
-
-addMenu({
-  route: "/pembayaran",
-  label: "Pembayaran",
-  subMenus: [],
-});
-
-addMenu({
-  route: "/updatelulusan",
-  label: "Update Lulusan",
-  subMenus: [],
 });
 
 addMenu({
@@ -249,24 +123,17 @@ addSubMenu("CPMK", {
 });
 
 addMenu({
-  route: "/penilaian-kelas",
-  label: "Penilaian Kelas",
-  permission: "ReadKelasDosenMe",
-  subMenus: [],
-});
-
-addMenu({
   route: "#",
   label: "Akademis",
   permission: "ReadKelasMahasiswaMe",
   subMenus: [],
 });
 
-addSubMenu("Akademis", {
-  route: "/akademis/ringkasan",
-  label: "Ringkasan",
-  permission: "ReadRencanaStudiMe",
-});
+addSubMenu('Akademis', {
+	route: '/akademis/ringkasan',
+	label: 'Ringkasan',
+	permission: "ReadRencanaStudiMe"
+})
 
 addSubMenu("Akademis", {
   route: "/akademis/riwayat",
@@ -275,14 +142,33 @@ addSubMenu("Akademis", {
 });
 
 addMenu({
-  route: "/semester",
-  label: "Semester",
-  permission: "ReadSemester",
+  route: "#",
+  label: "IRS",
+  permission: "ReadRencanaStudiMe",
   subMenus: [],
 });
 
+addSubMenu("IRS", {
+  route: "/irs/ringkasan",
+  label: "Lihat IRS",
+  permission: "ReadRencanaStudiMe",
+});
+
+addSubMenu("IRS", {
+  route: "/irs/isi",
+  label: "Isi/Ubah IRS",
+  permission: "CreateRencanaStudiMe",
+});
+
+addSubMenu("IRS", {
+  route: "/irs/pengaturan",
+  label: "Pengaturan Pengisian IRS",
+  permission: "UpdatePengisianRencanaStudi",
+});
+
 addMenu({
-  route: "/profileindustri",
-  label: "Profile Industri",
+  route: "/penilaian-kelas",
+  label: "Penilaian Kelas",
+  permission: "ReadKelasDosenMe",
   subMenus: [],
 });

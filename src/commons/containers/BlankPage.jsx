@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/commons/components";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const BlankPage = () => (
 	<div className="flex flex-col-reverse sm:flex-row justify-center items-center gap-5 mx-auto w-full max-w-screen-xl p-6">

@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-key */
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 13/06/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.4.0
 */
 import React, { useContext } from "react";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 
 import { useAuth } from "@/commons/auth";
 import {
@@ -25,6 +24,7 @@ const DetailCPMK = ({ data }) => {
   const navigate = useNavigate();
   const [showModalKonfirmasiHapusCPMK, setShowModalKonfirmasiHapusCPMK] =
     React.useState(false);
+
   const ubahCPMK = async () => {
     navigate("/cpmk/ubah?" + `id=${data.id}`);
   };
@@ -60,17 +60,17 @@ const DetailCPMK = ({ data }) => {
         },
       ]}
       itemsEvents={[
-        checkPermission("UpdateCPMK") && (
-          <Button variant="secondary" onClick={() => ubahCPMK()}>
-            Ubah CPMK
-          </Button>
-        ),
         checkPermission("DeleteCPMK") && (
           <Button
             variant="tertiary"
             onClick={() => setShowModalKonfirmasiHapusCPMK(true)}
           >
             Hapus
+          </Button>
+        ),
+        checkPermission("UpdateCPMK") && (
+          <Button variant="secondary" onClick={() => ubahCPMK()}>
+            Ubah
           </Button>
         ),
       ]}

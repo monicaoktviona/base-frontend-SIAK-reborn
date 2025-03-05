@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-key */
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.5.5
 */
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { useAuth } from "@/commons/auth";
 import { Button, Modal } from "@/commons/components";
@@ -68,7 +67,6 @@ const SemesterTable = ({ semesterDataList }) => {
         checkPermission("DeleteSemester") && (
           <Link to="">
             <Button
-              size="sm"
               variant="info"
               onClick={() => setShowModalKonfirmasiHapusSemester(true)}
             >
@@ -78,9 +76,7 @@ const SemesterTable = ({ semesterDataList }) => {
         ),
         checkPermission("UpdateSemester") && (
           <Link to={`/semester/ubah?id=${semesterItem.id}`}>
-            <Button size="sm" variant="secondary">
-              Ubah
-            </Button>
+            <Button variant="secondary">Ubah</Button>
           </Link>
         ),
       ]}

@@ -2,7 +2,7 @@ import React from "react";
 import { AuthProvider } from "./commons/auth";
 import { CookiesProvider } from "react-cookie";
 import {GlobalRoutes, MobileRoutes} from "./routes";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "@/commons/styles/global.css";
 import AppLayout from "@/commons/components/AppLayout";

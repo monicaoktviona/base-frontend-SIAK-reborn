@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from "react";
 
 import { ListItem, VisualizationAttr } from "@/commons/components";

@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React, { forwardRef } from "react";
 import { INPUT_CLASSNAMES } from "./variants";
 import useAppearance from "@/commons/appearance/useAppearance";

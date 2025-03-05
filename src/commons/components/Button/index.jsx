@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { BUTTON_CLASSNAMES, BUTTON_SIZES } from "./variants";
-import useAppearance from "@/commons/appearance/useAppearance";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { BUTTON_CLASSNAMES } from './variants'
+import useAppearance from '@/commons/appearance/useAppearance'
 
 // variant: primary, secondary, tertiary
 const Button = ({
@@ -12,34 +12,29 @@ const Button = ({
   className,
   children,
   kit,
-  size = "md",
 }) => {
-  const interfaceKit = useAppearance();
-  const buttonStyle = (kit ?? interfaceKit).button[variant];
-  const buttonVariant = BUTTON_CLASSNAMES[buttonStyle];
-  const buttonSize = BUTTON_SIZES[size];
+  const interfaceKit = useAppearance()
+  const buttonStyle = (kit ?? interfaceKit).button[variant]
+  const buttonVariant = BUTTON_CLASSNAMES[buttonStyle]
 
   return (
     <button
-      className={`btn ${buttonVariant} ${className} ${buttonSize}`}
+      className={`btn ${buttonVariant} ${className}`}
       disabled={disabled}
       onClick={onClick}
-      type={type || "button"}
+      type={type || 'button'}
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
 
 Button.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  variant: PropTypes.oneOf(["primary", "secondary", "tertiary", "neutral"]),
-  type: PropTypes.oneOf(["button", "submit", "reset"]),
-  kit: PropTypes.string,
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-};
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'neutral']),
+}

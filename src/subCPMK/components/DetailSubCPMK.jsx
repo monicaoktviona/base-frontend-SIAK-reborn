@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-key */
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 13/06/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.4.0
 */
 import React, { useContext } from 'react';
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useAuth } from '@/commons/auth';
 import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
@@ -19,15 +18,6 @@ const DetailSubCPMK = ({ data }) => {
     const { checkPermission } = useAuth();
     const navigate = useNavigate();
     const [showModalKonfirmasiHapusSubCPMK, setShowModalKonfirmasiHapusSubCPMK] = React.useState(false); 
-    const ubahSubCPMK = async () => {
-      navigate(
-        '/subcpmk/ubah/:id?'
-        + `id=${data.id}`
-        
-      );
-    };
-    
-    
   
     const hapus = async () => {
       await deleteSubCPMK({
@@ -42,19 +32,6 @@ const DetailSubCPMK = ({ data }) => {
         
       ]}
       itemsEvents={[
-            <Button
-              variant="secondary"
-              onClick={() => ubahSubCPMK()}
-            >
-              Ubah SubCPMK
-            </Button>
-        ,
-            <Button
-              variant="tertiary"
-              onClick={() => setShowModalKonfirmasiHapusSubCPMK(true)}
-            >
-              Hapus
-            </Button>
         
       ]}
       itemsModals={[

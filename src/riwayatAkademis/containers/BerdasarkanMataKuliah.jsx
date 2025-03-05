@@ -6,9 +6,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/commons/auth";
 import MKTable from "../components/MKTable";
 
@@ -33,7 +33,6 @@ const BerdasarkanMataKuliah = (props) => {
         setIsLoading((prev) => ({ ...prev, tableMKRiwayatAkademis: false }));
       }
     };
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     checkPermission("ReadKelasMahasiswaMe") && fetchData();
   }, []);
 

@@ -3,9 +3,9 @@ import AuthForgotPasswordService from '@/commons/services/AuthForgotPasswordServ
 import AuthForgotPasswordTokenService from '@/commons/services/AuthForgotPasswordTokenService'
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router-dom'
 import { MdArrowBack } from 'react-icons/md'
-import { Link } from "react-router";
+import { Link } from 'react-router-dom'
 import useAppearanceStore from '@/commons/appearance/store'
 
 const ForgotPasswordMobilePage = () => {

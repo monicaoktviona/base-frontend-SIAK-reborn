@@ -1,31 +1,32 @@
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 13/06/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.4.0
 */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router";
+import isSelectedFeature from "@/commons/utils/isSelectedFeature";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/commons/auth";
 import KomponenTable from "../components/KomponenTable";
 
 import getKomponenPenilaianDataList from "../services/getKomponenPenilaianDataList";
-import MahasiswaTable from "../components/MahasiswaTable";
+import DaftarTable from "../components/DaftarTable";
 
 import getMahasiswaDataList from "../services/getMahasiswaDataList";
 import PemetaanTable from "../components/PemetaanTable";
-
 import getCapaianDataList from "../services/getCapaianDataList";
 const DetailPenilaianKelasPage = (props) => {
   const { checkPermission } = useAuth();
+
   const { id } = useParams();
 
   const [isLoading, setIsLoading] = useState({
-    daftarKomponenPenilaian: false,
-    daftarMahasiswa: false,
+    tabelKomponenPenilaian: false,
+    tableDaftarMahasiswa: false,
     daftarPemetaanCapaian: false,
   });
   const { setTitle } = useContext(HeaderContext);
@@ -35,32 +36,34 @@ const DetailPenilaianKelasPage = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading((prev) => ({ ...prev, daftarKomponenPenilaian: true }));
+        setIsLoading((prev) => ({ ...prev, tabelKomponenPenilaian: true }));
         const { data: komponenPenilaianDataList } =
           await getKomponenPenilaianDataList({ kelasId: id });
         setKomponenPenilaianDataList(komponenPenilaianDataList.data);
       } finally {
-        setIsLoading((prev) => ({ ...prev, daftarKomponenPenilaian: false }));
+        setIsLoading((prev) => ({ ...prev, tabelKomponenPenilaian: false }));
       }
     };
     fetchData();
   }, []);
+
   const [mahasiswaDataList, setMahasiswaDataList] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading((prev) => ({ ...prev, daftarMahasiswa: true }));
+        setIsLoading((prev) => ({ ...prev, tableDaftarMahasiswa: true }));
         const { data: mahasiswaDataList } = await getMahasiswaDataList({
           kelasId: id,
         });
         setMahasiswaDataList(mahasiswaDataList.data);
       } finally {
-        setIsLoading((prev) => ({ ...prev, daftarMahasiswa: false }));
+        setIsLoading((prev) => ({ ...prev, tableDaftarMahasiswa: false }));
       }
     };
     fetchData();
   }, []);
+
   const [capaianDataList, setCapaianDataList] = useState();
 
   useEffect(() => {
@@ -86,10 +89,8 @@ const DetailPenilaianKelasPage = (props) => {
       buttons={
         <>
           <Layouts.ViewContainerBackButtonLayout>
-            <Link
-              to={`/penilaian-kelas
-			  	`}
-            >
+            <Link to={`/penilaian-kelas`}>
+              {" "}
               <Button className="p-4" variant="secondary">
                 Kembali
               </Button>
@@ -98,26 +99,25 @@ const DetailPenilaianKelasPage = (props) => {
 
           <Layouts.ViewContainerButtonLayout>
             {checkPermission("CreateKomponenPenilaian") && (
-              <Link
-                to={`/penilaian-kelas/:id/komponen/tambah
-			  	  `}
-              >
+              <Link to={`/penilaian-kelas/${id}/komponen/tambah`}>
                 <Button className="p-2" variant="primary">
                   Tambah Komponen Penilaian
                 </Button>
               </Link>
             )}
 
-            {checkPermission("CreateBobotKomponenPenilaian") && (
-              <Link
-                to={`/penilaian-kelas/:id/pemetaan-capaian/tambah
+            {isSelectedFeature("CPMK") &&
+              isSelectedFeature("SubCPMK") &&
+              checkPermission("CreateBobotKomponenPenilaian") && (
+                <Link
+                  to={`/penilaian-kelas/${id}/pemetaan-capaian/tambah
 			  	  `}
-              >
-                <Button className="p-2" variant="primary">
-                  Tambah/Ubah Pemetaan Capaian
-                </Button>
-              </Link>
-            )}
+                >
+                  <Button className="p-2" variant="primary">
+                    Tambah/Ubah Pemetaan Capaian
+                  </Button>
+                </Link>
+              )}
           </Layouts.ViewContainerButtonLayout>
         </>
       }
@@ -126,17 +126,9 @@ const DetailPenilaianKelasPage = (props) => {
         title={"Daftar Komponen Penilaian"}
         singularName={"Komponen"}
         items={[komponenPenilaianDataList]}
-        isLoading={isLoading.daftarKomponenPenilaian}
+        isLoading={isLoading.tabelKomponenPenilaian}
       >
         <KomponenTable komponenPenilaianDataList={komponenPenilaianDataList} />
-      </Layouts.ListContainerTableLayout>
-      <Layouts.ListContainerTableLayout
-        title={"Daftar Mahasiswa"}
-        singularName={"Mahasiswa"}
-        items={[mahasiswaDataList]}
-        isLoading={isLoading.daftarMahasiswa}
-      >
-        <MahasiswaTable mahasiswaDataList={mahasiswaDataList} />
       </Layouts.ListContainerTableLayout>
 
       {isSelectedFeature("CPMK") && isSelectedFeature("SubCPMK") && (
@@ -164,6 +156,15 @@ const DetailPenilaianKelasPage = (props) => {
           )}
         </>
       )}
+
+      <Layouts.ListContainerTableLayout
+        title={"Daftar Mahasiswa"}
+        singularName={"Daftar"}
+        items={[mahasiswaDataList]}
+        isLoading={isLoading.tableDaftarMahasiswa}
+      >
+        <DaftarTable mahasiswaDataList={mahasiswaDataList} />
+      </Layouts.ListContainerTableLayout>
     </Layouts.ViewContainerLayout>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '@/commons/auth';
 import { Button, TableRow, TableCell, Modal } from '@/commons/components';
@@ -11,7 +11,6 @@ const UserTable = ({ userItem }) => {
   const { checkPermission } = useAuth();
   const navigate = useNavigate();
   const detail = async () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     isMobile() && navigate(`/settings/user/${userItem.id}`
     );
   };
@@ -28,7 +27,7 @@ const UserTable = ({ userItem }) => {
 		
 		>{userItem?.email}</TableCell>
       <TableCell isHiddenMobile>
-        <div className="flex btn-group gap-2">
+        <div className="btn-group gap-2">
           {/* View Element Event User Table Element*/}
           <Link to={`/settings/user/${userItem.id}`}>
             <Button 

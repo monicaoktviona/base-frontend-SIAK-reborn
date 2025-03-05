@@ -1,11 +1,11 @@
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.5.5
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   Button,
   Form,
@@ -56,7 +56,6 @@ const FormTambahSemester = ({ kurikulum }) => {
       vas={[]}
       formFields={[
         <Controller
-          key="kode"
           name="kode"
           control={control}
           render={({ field, fieldState }) => (
@@ -71,7 +70,6 @@ const FormTambahSemester = ({ kurikulum }) => {
         />,
 
         <Controller
-          key="status"
           name="status"
           control={control}
           render={({ field, fieldState }) => (
@@ -86,7 +84,6 @@ const FormTambahSemester = ({ kurikulum }) => {
         />,
 
         <Controller
-          key="tanggalMulai"
           name="tanggalMulai"
           control={control}
           render={({ field, fieldState }) => (
@@ -101,7 +98,6 @@ const FormTambahSemester = ({ kurikulum }) => {
         />,
 
         <Controller
-          key="tanggalSelesai"
           name="tanggalSelesai"
           control={control}
           render={({ field, fieldState }) => (
@@ -116,7 +112,6 @@ const FormTambahSemester = ({ kurikulum }) => {
         />,
 
         <Controller
-          key="kurikulumIds"
           name="kurikulumIds"
           control={control}
           render={({ field, fieldState }) => (
@@ -132,7 +127,7 @@ const FormTambahSemester = ({ kurikulum }) => {
         />,
       ]}
       itemsEvents={[
-        <Button key="Tambah" type="submit" variant="primary">
+        <Button type="submit" variant="primary">
           Tambah
         </Button>,
       ]}

@@ -1,80 +1,88 @@
+/* eslint-disable react/jsx-key */
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.5
+	version 3.5.10
 */
-import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React from 'react';
+import { Link, useNavigate, useParams } from "react-router";
 
-import { useAuth } from "@/commons/auth";
-import { Button, Modal } from "@/commons/components";
-import { isMobile } from "@/commons/utils/responsive";
+import { useAuth } from '@/commons/auth';
+import { Button, Modal } from '@/commons/components';
+import { isMobile } from '@/commons/utils/responsive';
 
-import deleteKurikulum from "../services/deleteKurikulum";
+import deleteKurikulum from '../services/deleteKurikulum'
 
 import * as Layouts from "@/commons/layouts";
 
-const CPLTable = ({ cPLDataList }) => {
+const CPLTable = ({ cPLDataList
+
+	}) => {
   const { checkPermission } = useAuth();
   const navigate = useNavigate();
   const detail = async (cPLItem) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     isMobile() && navigate(`/cpl/${cPLItem.id}`);
   };
-
-  const [
-    showModalKonfirmasiHapusKurikulum,
-    setShowModalKonfirmasiHapusKurikulum,
-  ] = React.useState(false);
-  const hapus = async (cPL) => {
+  
+  const [showModalKonfirmasiHapusKurikulum, setShowModalKonfirmasiHapusKurikulum] = React.useState(false);
+  const hapus = async  (cPL) => {
     await deleteKurikulum({
-      id: cPL.id,
+        id: cPL.id,
     });
     window.location.reload(false);
-  };
-
+      };
+  
+  
   return (
     <Layouts.ListComponentTableLayout
-      items={[cPLDataList]}
-      detail={detail}
-      itemsAttrs={[
-        {
-          id: "kode",
-          condition: "isHeading",
-          label: "Kode",
-          featureName: "kode",
-        },
-        {
-          id: "deskripsi",
-          condition: "isHeading",
-          label: "Deskripsi",
-          featureName: "deskripsi",
-        },
-      ]}
-      itemsEvents={(cPLItem) => [
-        <Link to={`/cpl/${cPLItem.id}`}>
-          <Button variant="secondary">Detail</Button>
-        </Link>,
-      ]}
-      itemsModals={(cPLItem) => [
-        <Modal
-          isShow={showModalKonfirmasiHapusKurikulum}
-          title={"Konfirmasi Hapus Kurikulum"}
-        >
-          <Link to="">
+  	  items={[cPLDataList]}
+  	  detail={detail}
+  	  itemsAttrs={[
+  		{
+            id: "kode",
+            condition: "isHeading",
+            label: "Kode",
+            featureName: "kode",
+  		}
+  ,
+  		{
+            id: "deskripsi",
+            condition: "isHeading",
+            label: "Deskripsi",
+            featureName: "deskripsi",
+  		}
+  	  ]}
+        itemsEvents={(cPLItem) => [
+          <Link to={`/cpl/${cPLItem.id}`}>
             <Button
-              variant="tertiary"
-              onClick={() => setShowModalKonfirmasiHapusKurikulum(false)}
+          	size="sm"
+          	variant=
+          				"secondary"
             >
-              Batal
+              Detail
             </Button>
           </Link>
-          <Button variant="danger" onClick={() => hapus(cPLItem)}>
-            Hapus
-          </Button>
-        </Modal>,
-      ]}
-    />
-  );
+          
+          
+        ]}
+    	  itemsModals={(cPLItem) => [
+  	      <Modal
+  	         isShow={showModalKonfirmasiHapusKurikulum}
+  	         title={"Konfirmasi Hapus Kurikulum"}
+  	      >
+  	       <Link to=''><Button variant="tertiary" onClick={() => setShowModalKonfirmasiHapusKurikulum(false)}>Batal</Button></Link>
+  	      <Button
+  	        variant="danger"
+  	        onClick={() => hapus(cPLItem)}
+  	      >
+  	        Hapus
+  	      </Button>
+  	      </Modal>
+  	      
+        ]}
+  	/>
+  )
 };
 
 export default CPLTable;

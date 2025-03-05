@@ -1,14 +1,14 @@
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.5
+	version 3.5.10
 */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useAuth } from "@/commons/auth";
 import KelasTable from "../components/KelasTable";
 
@@ -45,8 +45,10 @@ const DaftarKelasPage = (props) => {
         <>
           <Layouts.ViewContainerButtonLayout>
             {checkPermission("CreateKelas") && (
-              <Link to={`/kelas/tambah`}>
-                {" "}
+              <Link
+                to={`/kelas/tambah
+			  	  `}
+              >
                 <Button className="p-2" variant="primary">
                   Tambah Kelas
                 </Button>

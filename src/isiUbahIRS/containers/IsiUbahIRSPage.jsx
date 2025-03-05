@@ -1,14 +1,14 @@
 /*
 	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.5
+	version 3.5.10
 */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Detail, Spinner } from "@/commons/components";
 import * as Layouts from "@/commons/layouts";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { HeaderContext } from "@/commons/components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useAuth } from "@/commons/auth";
 import FormIsiIRS from "../components/FormIsiIRS";
 import KelasTable from "../components/KelasTable";
@@ -76,13 +76,8 @@ const IsiUbahIRSPage = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log(isIRSPeriod);
-  }, [isIRSPeriod]);
-
-  useEffect(() => {
     setTitle("Isi/Ubah IRS Page");
   }, []);
-
   return (
     <Layouts.ViewContainerLayout
       buttons={
@@ -110,6 +105,7 @@ const IsiUbahIRSPage = (props) => {
           ) : (
             <Layouts.ViewContainerLayout>
               <Detail
+                // eslint-disable-next-line react/no-children-prop
                 children={<p className="w-full text-center">{fallback}</p>}
               />
             </Layouts.ViewContainerLayout>

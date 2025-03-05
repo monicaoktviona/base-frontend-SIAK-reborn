@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { forwardRef, useEffect, useState } from "react";
 import CheckBoxField from "./CheckBoxField";
 import { capitalize } from "@/commons/utils/capitalize";

@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { forwardRef } from "react";
 import { INPUT_CLASSNAMES } from "./variants";
 import useAppearance from "@/commons/appearance/useAppearance";
@@ -40,6 +41,7 @@ const SelectionField = forwardRef((props, ref) => {
         </option>
         {options &&
           options.map((option) => (
+            // eslint-disable-next-line react/jsx-key
             <option value={option.id}>{option.name}</option>
           ))}
       </select>

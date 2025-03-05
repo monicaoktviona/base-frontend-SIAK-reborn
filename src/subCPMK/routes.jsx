@@ -1,7 +1,7 @@
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.10
 */
 import RequireAuth from '@/commons/auth/RequireAuth'
 
@@ -12,20 +12,20 @@ import UbahSubCPMKPage from './containers/UbahSubCPMKPage'
 
 const subCPMKRoutes = [
 	{ 
-		path: "/subcpmk/tambah",
-		element: <RequireAuth permissionNeeded="CreateSubCPMK" ><TambahSubCPMKPage/></RequireAuth>
-	},
-	{ 
 		path: "/subcpmk",
-		element: <RequireAuth permissionNeeded="ReadSubCPMK" ><DaftarSubCPMKPage/></RequireAuth>
-	},
-	{ 
-		path: "/subcpmk/ubah",
-		element: <RequireAuth permissionNeeded="UpdateSubCPMK" ><UbahSubCPMKPage/></RequireAuth>
+		element: <RequireAuth permissionNeeded="ReadSubCPMK" ><DaftarSubCPMKPage/></RequireAuth>,
 	},
 	{ 
 		path: "/subcpmk/:id",
-		element: <RequireAuth permissionNeeded="ReadSubCPMK" ><DetailSubCPMKPage /></RequireAuth>
+		element: <RequireAuth permissionNeeded="ReadSubCPMK" ><DetailSubCPMKPage /></RequireAuth>,
+	},
+	{ 
+		path: "/subcpmk/tambah",
+		element: <RequireAuth permissionNeeded="CreateSubCPMK" ><TambahSubCPMKPage/></RequireAuth>,
+	},
+	{ 
+		path: "/subcpmk/ubah/:id",
+		element: <RequireAuth permissionNeeded="UpdateSubCPMK" ><UbahSubCPMKPage/></RequireAuth>,
 	}
 ]
 

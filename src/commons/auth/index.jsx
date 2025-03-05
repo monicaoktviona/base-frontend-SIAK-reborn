@@ -49,13 +49,20 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = React.useState(isKeepLogin);
 
   const checkPermission = (permissionNeeded) => {
+    // console.log(permissions)
+    console.log("permissions")
+    console.log(permissions)
     if (permissions && isAuthenticated) {
       if (permissionNeeded instanceof Array) {
+        console.log("tes")
+        console.log(permissions.some((r) => permissionNeeded.indexOf(r) >= 0))
         return permissions.some((r) => permissionNeeded.indexOf(r) >= 0);
-      } else if (
+      } else if (        
         permissions.includes(permissionNeeded) ||
         permissions.includes("administrator")
       ) {
+        console.log("tes2")
+        console.log(permissions.includes(permissionNeeded))
         return true;
       }
     }

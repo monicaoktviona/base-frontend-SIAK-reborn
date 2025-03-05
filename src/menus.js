@@ -41,33 +41,15 @@ export const settingsMenu = [
 ];
 
 export default menus;
-
-// Add menus with permission attributes
 addMenu({
-  route: "/programstudi",
-  label: "Program Studi",
-  permission: "ReadProgramStudi",
+  route: "/profilealumni",
+  label: "Profile Alumni",
   subMenus: [],
 });
 
 addMenu({
-  route: "/kurikulum",
-  label: "Kurikulum",
-  permission: "ReadKurikulum",
-  subMenus: [],
-});
-
-addMenu({
-  route: "/semester",
-  label: "Semester",
-  permission: "ReadSemester",
-  subMenus: [],
-});
-
-addMenu({
-  route: "/matakuliah",
-  label: "Mata Kuliah",
-  permission: "ReadMataKuliah",
+  route: "/buatakunalumni",
+  label: "Buat Akun Alumni",
   subMenus: [],
 });
 
@@ -75,6 +57,39 @@ addMenu({
   route: "/kelas",
   label: "Kelas",
   permission: "ReadKelas",
+  subMenus: [],
+});
+
+addMenu({
+  route: "#",
+  label: "Pengumuman",
+  subMenus: [],
+});
+
+addSubMenu("Pengumuman", {
+  route: "/pengumumanalumni",
+  label: "Pengumuman Alumni",
+});
+
+addSubMenu("Pengumuman", {
+  route: "/pengumumanindustri",
+  label: "Pengumuman Industri",
+});
+
+addSubMenu("Pengumuman", {
+  route: "/pengumumanakademik",
+  label: "Pengumuman Admin Akademik",
+});
+
+addMenu({
+  route: "/profilemahasiswa",
+  label: "Profile Mahasiswa",
+  subMenus: [],
+});
+
+addMenu({
+  route: "/approvalsubscription",
+  label: "Approval Subscription",
   subMenus: [],
 });
 
@@ -98,47 +113,55 @@ addSubMenu("CPL", {
 });
 
 addMenu({
-  route: "#",
-  label: "CPMK",
-  permission: "ReadCPMK",
+  route: "/programstudi",
+  label: "Program Studi",
+  permission: "ReadProgramStudi",
   subMenus: [],
-});
-
-addSubMenu("CPMK", {
-  route: "/cpmk",
-  label: "CPMK",
-  permission: "ReadCPMK",
-});
-
-addSubMenu("CPMK", {
-  route: "/subcpmk",
-  label: "Sub-CPMK",
-  permission: "ReadSubCPMK",
-});
-
-addSubMenu("CPMK", {
-  route: "/cpmk/laporan",
-  label: "Laporan CPMK",
-  permission: "ReadLaporanCPMK",
 });
 
 addMenu({
   route: "#",
-  label: "Akademis",
-  permission: "ReadKelasMahasiswaMe",
+  label: "Daftar Pengguna",
   subMenus: [],
 });
 
-addSubMenu('Akademis', {
-	route: '/akademis/ringkasan',
-	label: 'Ringkasan',
-	permission: "ReadRencanaStudiMe"
-})
+addSubMenu("Daftar Pengguna", {
+  route: "/daftarsemuaalumni",
+  label: "Daftar Semua Alumni",
+});
 
-addSubMenu("Akademis", {
-  route: "/akademis/riwayat",
-  label: "Riwayat",
-  permission: "ReadKelasMahasiswaMe",
+addSubMenu("Daftar Pengguna", {
+  route: "/daftarsemuamahasiswa",
+  label: "Daftar Semua Mahasiswa",
+});
+
+addSubMenu("Daftar Pengguna", {
+  route: "/daftaralumni",
+  label: "Daftar Alumni",
+});
+
+addSubMenu("Daftar Pengguna", {
+  route: "/daftarmahasiswa",
+  label: "Daftar Mahasiswa",
+});
+
+addSubMenu("Daftar Pengguna", {
+  route: "/daftarindustri",
+  label: "Daftar Industri",
+});
+
+addMenu({
+  route: "/matakuliah",
+  label: "Mata Kuliah",
+  permission: "ReadMataKuliah",
+  subMenus: [],
+});
+
+addMenu({
+  route: "/kurikulum",
+  label: "Kurikulum",
+  permission: "ReadKurikulum",
+  subMenus: [],
 });
 
 addMenu({
@@ -167,8 +190,99 @@ addSubMenu("IRS", {
 });
 
 addMenu({
+  route: "/pengajuansubscription",
+  label: "Pengajuan Subscription",
+  subMenus: [],
+});
+
+addMenu({
+  route: "#",
+  label: "Verifikasi Identitas",
+  subMenus: [],
+});
+
+addSubMenu("Verifikasi Identitas", {
+  route: "/verifikasialumni",
+  label: "Verifikasi Alumni",
+});
+
+addSubMenu("Verifikasi Identitas", {
+  route: "/verifikasimahasiswa",
+  label: "Verifikasi Mahasiswa",
+});
+
+addMenu({
+  route: "/pembayaran",
+  label: "Pembayaran",
+  subMenus: [],
+});
+
+addMenu({
+  route: "/updatelulusan",
+  label: "Update Lulusan",
+  subMenus: [],
+});
+
+addMenu({
+  route: "#",
+  label: "CPMK",
+  permission: "ReadCPMK",
+  subMenus: [],
+});
+
+addSubMenu("CPMK", {
+  route: "/cpmk",
+  label: "CPMK",
+  permission: "ReadCPMK",
+});
+
+addSubMenu("CPMK", {
+  route: "/subcpmk",
+  label: "Sub-CPMK",
+  permission: "ReadSubCPMK",
+});
+
+addSubMenu("CPMK", {
+  route: "/cpmk/laporan",
+  label: "Laporan CPMK",
+  permission: "ReadLaporanCPMK",
+});
+
+addMenu({
   route: "/penilaian-kelas",
   label: "Penilaian Kelas",
   permission: "ReadKelasDosenMe",
+  subMenus: [],
+});
+
+addMenu({
+  route: "#",
+  label: "Akademis",
+  permission: "ReadKelasMahasiswaMe",
+  subMenus: [],
+});
+
+addSubMenu("Akademis", {
+  route: "/akademis/ringkasan",
+  label: "Ringkasan",
+  permission: "ReadRencanaStudiMe",
+});
+
+addSubMenu("Akademis", {
+  route: "/akademis/riwayat",
+  label: "Riwayat",
+  permission: "ReadKelasMahasiswaMe",
+});
+
+addMenu({
+  route: "/semester",
+  label: "Semester",
+  permission: "ReadSemester",
+  subMenus: [],
+});
+
+addMenu({
+  route: "/profileindustri",
+  label: "Profile Industri",
   subMenus: [],
 });

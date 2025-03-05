@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useRef } from "react";
 
 import {
@@ -68,12 +69,12 @@ const ReportRow = ({ items, itemsAttrs }) => {
         </>
       );
     } else {
-      // tableBody.current.push(row);
+      tableBody.current.push(row);
       if (index === items.length - 1)
         return (
-          items.length !== 0 && (
+          tableBody.current.length !== 0 && (
             <TableBody>
-              {items.map((item, idx) => (
+              {tableBody.current.map((item, idx) => (
                 <TableRow key={idx}>
                   {itemsAttrs?.map((itemsAttr) =>
                     itemsAttr.featureName.includes("name") ? (

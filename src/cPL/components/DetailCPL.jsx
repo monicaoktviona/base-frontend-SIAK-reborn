@@ -1,41 +1,41 @@
+/* eslint-disable react/jsx-key */
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.10
 */
-import React, { useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { useNavigate, Link } from "react-router";
 
-import { useAuth } from '@/commons/auth';
-import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
+import { useAuth } from "@/commons/auth";
+import {
+  Button,
+  Detail,
+  VisualizationAttr,
+  Modal,
+  Spinner,
+} from "@/commons/components";
 
-import deleteCPL from '../services/deleteCPL';
+import deleteCPL from "../services/deleteCPL";
 
 import * as Layouts from "@/commons/layouts";
 
-
 const DetailCPL = ({ data }) => {
-    const { checkPermission } = useAuth();
-    const navigate = useNavigate();
-    const [showModalKonfirmasiHapusCPL, setShowModalKonfirmasiHapusCPL] = React.useState(false); 
-    
-    const ubahCPL = async () => {
-      navigate(
-        '/cpl/ubah?'
-        + `id=${data.id}`
-        
-      );
-    };
-    
-    
-  
-    const hapus = async () => {
-      await deleteCPL({
-        id: data.id,
-      });
-      navigate('/cpl');
-    };
-  
+  const { checkPermission } = useAuth();
+  const navigate = useNavigate();
+  const [showModalKonfirmasiHapusCPL, setShowModalKonfirmasiHapusCPL] =
+    React.useState(false);
+  const ubahCPL = async () => {
+    navigate("/cpl/ubah?" + `id=${data.id}`);
+  };
+
+  const hapus = async () => {
+    await deleteCPL({
+      id: data.id,
+    });
+    navigate("/cpl");
+  };
+
   return (
     <Layouts.DetailComponentLayout
       item={data}
@@ -45,50 +45,46 @@ const DetailCPL = ({ data }) => {
           condition: "",
           label: "Kode",
           featureName: "kode",
-        }
-        ,
+        },
         {
           id: "deskripsi",
           condition: "",
           label: "Deskripsi",
           featureName: "deskripsi",
-        }
-        
+        },
       ]}
       itemsEvents={[
-            checkPermission("DeleteCPL") &&  (
-              <Button
-                variant="tertiary"
-                onClick={() => setShowModalKonfirmasiHapusCPL(true)}
-              >
-                Hapus
-              </Button>
-            )
-        ,
-            checkPermission("UpdateCPL") &&  (
-              <Button
-                variant="secondary"
-                onClick={() => ubahCPL()}
-              >
-                Ubah
-              </Button>
-            )
-        
-      ]}
-      itemsModals={[
-        <Modal
-           isShow={showModalKonfirmasiHapusCPL}
-           title={"Konfirmasi Hapus CPL"}
-        >
-           <Link to=''><Button variant="tertiary" onClick={() => setShowModalKonfirmasiHapusCPL(false)}>Batal</Button></Link>
+        checkPermission("UpdateCPL") && (
+          <Button variant="secondary" onClick={() => ubahCPL()}>
+            Ubah CPL
+          </Button>
+        ),
+        checkPermission("DeleteCPL") && (
           <Button
-            variant="danger"
-            onClick={() => hapus()}
+            variant="tertiary"
+            onClick={() => setShowModalKonfirmasiHapusCPL(true)}
           >
             Hapus
           </Button>
-        </Modal>
-        
+        ),
+      ]}
+      itemsModals={[
+        <Modal
+          isShow={showModalKonfirmasiHapusCPL}
+          title={"Konfirmasi Hapus CPL"}
+        >
+          <Link to="">
+            <Button
+              variant="tertiary"
+              onClick={() => setShowModalKonfirmasiHapusCPL(false)}
+            >
+              Batal
+            </Button>
+          </Link>
+          <Button variant="danger" onClick={() => hapus()}>
+            Hapus
+          </Button>
+        </Modal>,
       ]}
     />
   );

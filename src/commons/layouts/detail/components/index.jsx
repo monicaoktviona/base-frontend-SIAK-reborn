@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import { VisualizationAttr } from "@/commons/components";
 
@@ -18,7 +19,7 @@ const DetailComponentLayout = ({
             />
           )
         )}
-        <div className="flex flex-col sm:grid sm:grid-cols-2">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-x-4">
           {itemsAttrs?.map(va => !va.label.match("Gambar") &&
             (
               <VisualizationAttr

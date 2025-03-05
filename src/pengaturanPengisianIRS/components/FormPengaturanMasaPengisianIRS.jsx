@@ -1,15 +1,36 @@
-import React, { useState } from "react";
+/*
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.5.10
+*/
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { Button, InputField } from "@/commons/components";
+import { useNavigate, useSearchParams } from "react-router";
+import {
+  Button,
+  Form,
+  SelectionField,
+  MultiSelectionField,
+  InputField,
+  MultiSelectField,
+  TextAreaField,
+  RichTextField,
+  VisualizationAttr,
+  Spinner,
+} from "@/commons/components";
+import {
+  ALLOWED_PERMISSIONS,
+  findAllowedPermission,
+} from "@/commons/constants/allowedPermission";
 import cleanFormData from "@/commons/utils/cleanFormData";
 import updateRencanaStudi from "../services/updateRencanaStudi";
+
 import { notifyError } from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
-import { Spinner } from "@/commons/components";
 
-const FormPengaturanMasaPengisianIRS = ({ periodeData }) => {
+const FormPengaturanMasaPengisianIRS = ({ periodePengisianIRS }) => {
   const { control, handleSubmit } = useForm();
+
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,7 +41,6 @@ const FormPengaturanMasaPengisianIRS = ({ periodeData }) => {
     });
 
     setIsLoading(true);
-
     updateRencanaStudi(cleanData)
       .then(({ data: { data } }) => {})
       .catch((error) => {
@@ -42,10 +62,12 @@ const FormPengaturanMasaPengisianIRS = ({ periodeData }) => {
         <Layouts.FormComponentLayout
           title="Pengaturan Masa Pengisian IRS"
           onSubmit={handleSubmit(simpan)}
+          vas={[]}
           formFields={[
             <Controller
+              key="mulai"
               name="mulai"
-              defaultValue={
+			  defaultValue={
                 periodeData?.mulai === undefined
                   ? ""
                   : new Date(periodeData?.mulai).toISOString().slice(0, -1)
@@ -53,17 +75,19 @@ const FormPengaturanMasaPengisianIRS = ({ periodeData }) => {
               control={control}
               render={({ field }) => (
                 <InputField
-                  {...field}
-                  type="datetime-local"
                   label="Tanggal Mulai"
                   placeholder="Pilih tanggal mulai pengisian IRS"
+                  type="datetime-local"
+                  {...field}
                 />
               )}
-              rules={{ required: true }}
+			  rules={{ required: true }}
             />,
+
             <Controller
+              key="akhir"
               name="akhir"
-              defaultValue={
+			  defaultValue={
                 periodeData?.akhir === undefined
                   ? ""
                   : new Date(periodeData?.akhir).toISOString().slice(0, -1)
@@ -71,17 +95,17 @@ const FormPengaturanMasaPengisianIRS = ({ periodeData }) => {
               control={control}
               render={({ field }) => (
                 <InputField
-                  {...field}
-                  type="datetime-local"
                   label="Tanggal Akhir"
                   placeholder="Pilih tanggal akhir pengisian IRS"
+                  type="datetime-local"
+                  {...field}
                 />
               )}
-              rules={{ required: true }}
+			  rules={{ required: true }}
             />,
           ]}
           itemsEvents={[
-            <Button type="submit" variant="primary">
+            <Button key="Simpan" type="submit" variant="primary">
               Simpan
             </Button>,
           ]}

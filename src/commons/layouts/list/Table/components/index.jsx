@@ -7,6 +7,7 @@ import searchItems from "@/commons/utils/Table/SearchItems";
 import filterItems from "@/commons/utils/Table/FilterItems";
 import SearchField from "@/commons/components/Table/SearchField";
 import FilterField from "@/commons/components/Table/FilterField";
+import MultiFilterField from "@/commons/components/Table/MultiFilterField";
 
 const ListComponentLayout = ({
   items,
@@ -16,6 +17,7 @@ const ListComponentLayout = ({
   itemsAttrs,
   itemsEvents,
   itemsModals,
+  handleChange,
 }) => {
   const [viewItems, setViewItems] = useState([]);
 
@@ -33,7 +35,7 @@ const ListComponentLayout = ({
 
   useEffect(() => {
     setFilterTextList(
-      filterFields?.map((filterField) => ({ ...filterField, text: "" }))
+      filterFields?.map((filterField) => ({ ...filterField, text: [""] }))
     );
   }, [filterFields]);
 
@@ -52,7 +54,11 @@ const ListComponentLayout = ({
     <div>
       <DataTable
         columns={TableHeaderLayout({ itemsAttrs, itemsEvents, itemsModals })}
-        data={TableRowLayout({ viewItems, itemsAttrs })}
+        data={TableRowLayout({
+          viewItems,
+          itemsAttrs,
+          handleChange,
+        })}
         pagination
         subHeader
         subHeaderComponent={
@@ -63,6 +69,13 @@ const ListComponentLayout = ({
             {filterFields?.map(
               (filterField) =>
                 filterField && (
+                  filterField.isMultiSelection
+                  ?
+                  <MultiFilterField
+                    filterField={filterField}
+                    updateFilterText={updateFilterText}
+                  />
+                  :
                   <FilterField
                     filterField={filterField}
                     updateFilterText={updateFilterText}

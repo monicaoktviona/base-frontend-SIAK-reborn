@@ -1,17 +1,18 @@
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.14
 */
-import RequireAuth from '@/commons/auth/RequireAuth'
-
-import Home from './containers/Home'
+import React from 'react';
+import Home from "./containers/Home";
 
 const homeRoutes = [ 
 { 
 	path: "/",
 	element: <RequireAuth permissionNeeded="home" ><Home/></RequireAuth>
 }
+
+
 
 ]
 

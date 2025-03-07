@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import useAuth from "@/commons/auth";
+import { Link } from "react-router";
 
 const MenuItem = ({ route, label, subMenus, isCollapsed }) => {
-  const { checkPermission } = useAuth();
   if (subMenus?.length > 0) {
     return (
       <li>
@@ -12,11 +10,7 @@ const MenuItem = ({ route, label, subMenus, isCollapsed }) => {
           <summary className="text-base">{label}</summary>
           <ul>
             {subMenus.map((menu) => (
-              <>
-                {checkPermission(menu.permission) && (
-                  <MenuItem {...menu} key={menu.label} />
-                )}
-              </>
+              <MenuItem {...menu} key={menu.label} />
             ))}
           </ul>
         </details>

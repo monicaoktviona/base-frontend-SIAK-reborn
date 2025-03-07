@@ -1,39 +1,8 @@
-const isSelectedFeature = (item) =>
-  selectedFeatures.some((x) => x.includes(item));
+const isSelectedFeature = (item) => selectedFeatures.some(x => x.includes(item))
 
-export default isSelectedFeature;
+export default isSelectedFeature
 
-var selectedFeatures = Array.from(
-  new Set([
-    "RiwayatAkademis",
+var selectedFeatures = Array.from(new Set ([
 
-    "Capaian",
-    "CPL",
-
-    "PenilaianKelas",
-
-    "Capaian",
-    "SubCPMK",
-
-    "ProgramStudi",
-
-    "LaporanCapaian",
-    "LaporanCPMK",
-
-    "Kurikulum",
-
-    "Semester",
-
-    "Kelas",
-
-    "MataKuliah",
-
-    "LaporanCapaian",
-    "LaporanCPL",
-
-    "Capaian",
-    "CPMK",
-
-    "Home",
-  ])
-);
+"Home",
+]))

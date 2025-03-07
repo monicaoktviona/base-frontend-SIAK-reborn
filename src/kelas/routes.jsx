@@ -1,10 +1,10 @@
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.5
+	version 3.5.14
 */
-import RequireAuth from "@/commons/auth/RequireAuth";
-import React from 'react';
+import RequireAuth from '@/commons/auth/RequireAuth'
+
 import DaftarKelasPage from './containers/DaftarKelasPage'
 import DetailKelasPage from './containers/DetailKelasPage'
 import UbahKelasPage from './containers/UbahKelasPage'
@@ -13,7 +13,7 @@ import TambahKelasPage from './containers/TambahKelasPage'
 const kelasRoutes = [
 { 
 	path: "/kelas",
-	element: <RequireAuth permissionNeeded="ReadKelas" ><DaftarKelasPage/></RequireAuth>,
+	element: <DaftarKelasPage />,
 }
 
 	
@@ -34,7 +34,7 @@ const kelasRoutes = [
 ,
 { 
 	path: "/kelas/:id",
-	element: <RequireAuth permissionNeeded="ReadKelas" ><DetailKelasPage/></RequireAuth>,
+	element: <DetailKelasPage />,
 }
 
 	

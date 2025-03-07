@@ -1,22 +1,23 @@
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.14
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
 import * as Layouts from '@/commons/layouts';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from "react-router";
 import { HeaderContext } from "@/commons/components"
-import isSelectedFeature from '@/commons/utils/isSelectedFeature'
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from "react-router";
 import ModifiedFormUbahCPMK from '../components/ModifiedFormUbahCPMK'
 
 import getCPMKUbah from '../services/getCPMKUbah'
 import getCPL from '../services/getCPL'
 import getMataKuliah from '../services/getMataKuliah'
 const UbahCPMKPage = props => {
-const [isLoading, setIsLoading] = useState({
+const { id } = useParams()
+
+	const [isLoading, setIsLoading] = useState({
 	ubahCPMK: false,
 
 	});
@@ -54,7 +55,9 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerBackButtonLayout>
-			  	<Link to={`/cpmk/${id}`}>	<Button className="p-4" variant="secondary">
+			  	<Link to={`/cpmk/${id}
+			  	`}>
+			  		<Button className="p-4" variant="secondary">
 			  		  Kembali
 			  		</Button>
 			  	</Link>

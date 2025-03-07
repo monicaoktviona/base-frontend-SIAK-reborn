@@ -32,7 +32,7 @@ const TableCell = ({
     </th>
   ) : (
     <td
-      className={`whitespace-normal break-words ${isHiddenMobile &&
+      className={`whitespace-pre overflow-hidden text-ellipsis ${isHiddenMobile &&
         "hidden sm:table-cell"} ${className}`}
       style={{ textAlign: isCurrency ? "right" : "inherit" }}
     >

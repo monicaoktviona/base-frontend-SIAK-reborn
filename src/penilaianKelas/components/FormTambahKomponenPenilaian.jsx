@@ -1,12 +1,11 @@
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.14
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import toast from "react-hot-toast";
+import { useNavigate, useSearchParams } from "react-router";
 import {
   Button,
   Form,
@@ -14,83 +13,102 @@ import {
   MultiSelectionField,
   InputField,
   MultiSelectField,
+  RadioInputField,
   TextAreaField,
+  RichTextField,
   VisualizationAttr,
   Spinner,
+  
 } from "@/commons/components";
 import {
   ALLOWED_PERMISSIONS,
   findAllowedPermission,
 } from "@/commons/constants/allowedPermission";
 import cleanFormData from "@/commons/utils/cleanFormData";
-
-import saveKomponenPenilaian from "../services/saveKomponenPenilaian";
+import saveKomponenPenilaian from '../services/saveKomponenPenilaian'
 
 import { notifyError } from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
 
-const FormTambahKomponenPenilaian = ({}) => {
-  const { control, handleSubmit } = useForm();
-
-  const navigate = useNavigate();
-  const { id } = useParams();
-
+const FormTambahKomponenPenilaian = ({ 
+ }) => {
+  const { 
+    control, 
+    handleSubmit,
+  } = useForm({ defaultValues:  })
+  
+  
+  
+  
+  
+  
+  
+  const navigate = useNavigate()
+  
   const tambah = (data) => {
-    const cleanData = cleanFormData(data);
+    const cleanData = cleanFormData(data)
     saveKomponenPenilaian({
       ...cleanData,
-      kelasId: id,
     })
-      .then(({ data: { data } }) => {
-        navigate(`/penilaian-kelas/${id}`);
-      })
-      .catch((error) => {
-        console.error(error);
-        notifyError(error);
-      });
-  };
-
+    .then(({ data: { data } }) => {
+     navigate(`/penilaian-kelas/${.kelasId}`)
+    })
+    .catch((error) => {
+      console.error(error);
+      notifyError(error);
+    });
+  }
+  
+  
   return (
-    <Layouts.FormComponentLayout
-      title="Tambah Komponen Penilaian"
-      onSubmit={handleSubmit(tambah)}
-      vas={[]}
-      formFields={[
-        <Controller
-          name="nama"
-          control={control}
-          render={({ field, fieldState }) => (
-            <InputField
-              label="Nama Komponen"
-              placeholder="Masukkan nama komponen"
-              fieldState={fieldState}
-              {...field}
-              isRequired={false}
-            />
-          )}
-        />,
+	  <Layouts.FormComponentLayout
+		  title="Tambah Komponen Penilaian" 
+		  onSubmit={handleSubmit(tambah)}
+	
+	    vas={[
+		  ]}
+	
+		  formFields={[
+			  
+			  <Controller
+			    key="nama"
+		        name="nama"
+		        control={control}
+		        render={({ field, fieldState }) => (
+				  <InputField
+		            label="Nama Komponen"
+		            placeholder="Masukkan nama komponen"
+		            defaultValue={.nama}	            fieldState={fieldState}
+					{...field}
+					isRequired={false}
+		          />
+		        )}
+		      />
+	,
+			  
+			  <Controller
+			    key="bobot"
+		        name="bobot"
+		        control={control}
+		        render={({ field, fieldState }) => (
+				  <InputField
+		            label="Bobot"
+		            placeholder="Masukkan bobot"
+		            defaultValue={.bobot}	            fieldState={fieldState}
+					{...field}
+					isRequired={false}
+		          />
+		        )}
+		      />
+		  ,
+	
+		  ]}
+	
+		  itemsEvents={[
+				<Button key="Tambah" type="submit" variant="primary">Tambah</Button>
+	    ]}
+	  />
+  )
+}
 
-        <Controller
-          name="bobot"
-          control={control}
-          render={({ field, fieldState }) => (
-            <InputField
-              label="Bobot"
-              placeholder="Masukkan bobot"
-              fieldState={fieldState}
-              {...field}
-              isRequired={false}
-            />
-          )}
-        />,
-      ]}
-      itemsEvents={[
-        <Button type="submit" variant="primary">
-          Tambah
-        </Button>,
-      ]}
-    />
-  );
-};
-
-export default FormTambahKomponenPenilaian;
+export default FormTambahKomponenPenilaian

@@ -1,21 +1,17 @@
 /*
-	Generated on 13/06/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.4.0
+	version 3.5.14
 */
-import RequireAuth from "@/commons/auth/RequireAuth";
+import RequireAuth from '@/commons/auth/RequireAuth'
 
-import LaporanCPLPage from "./containers/LaporanCPLPage";
+import LaporanCPLPage from './containers/LaporanCPLPage'
 
 const laporanCPLRoutes = [
-  {
-    path: "/cpl/laporan",
-    element: (
-      <RequireAuth permissionNeeded="ReadLaporanCPL">
-        <LaporanCPLPage />
-      </RequireAuth>
-    ),
-  },
-];
+	{ 
+		path: "/cpl/laporan",
+		element: <LaporanCPLPage />,
+	}
+]
 
-export default laporanCPLRoutes;
+export default laporanCPLRoutes

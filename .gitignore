@@ -1,7 +1,0 @@
-node_modules/
-*.env
-!.env.template
-
-build
-.vscode
-node_modules

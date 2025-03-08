@@ -1,11 +1,11 @@
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.5.14
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router";
 import {
   Button,
   Form,
@@ -13,6 +13,7 @@ import {
   MultiSelectionField,
   InputField,
   MultiSelectField,
+  RadioInputField,
   TextAreaField,
   RichTextField,
   VisualizationAttr,
@@ -50,7 +51,7 @@ const ModifiedFormFormCariMahasiswa = ({
       ...cleanData,
     })
     .then(({ data: { data } }) => {
-      navigate(`/verifikasimahasiswa/detail/${data.id}`)
+      navigate(`/verifikasimahasiswa/detail/${data.}`)
     })
     .catch((error) => {
       console.error(error);
@@ -68,41 +69,12 @@ const ModifiedFormFormCariMahasiswa = ({
 		  ]}
 	
 		  formFields={[
-			  
-			  <Controller
-		        name="npm"
-		        control={control}
-		        render={({ field, fieldState }) => (
-				  <InputField
-		            label="NPM"
-		            placeholder="Masukkan npm"
-		            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
-		        )}
-		      />
-	,
-			  
-			  <Controller
-		        name="nama"
-		        control={control}
-		        render={({ field, fieldState }) => (
-				  <InputField
-		            label="Nama"
-		            placeholder="Masukkan nama"
-		            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
-		        )}
-		      />
-		  ,
+		  
 	
 		  ]}
 	
 		  itemsEvents={[
-				<Button type="submit" variant="primary">Search</Button>
+				<Button key="Search" type="submit" variant="primary">Search</Button>
 	    ]}
 	  />
   )

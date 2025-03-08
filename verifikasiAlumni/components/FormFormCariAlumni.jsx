@@ -1,11 +1,11 @@
 /*
-	Generated on 12/02/2025 by UI Generator PRICES-IDE
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.14
+	version 3.5.5
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   Button,
   Form,
@@ -13,7 +13,6 @@ import {
   MultiSelectionField,
   InputField,
   MultiSelectField,
-  RadioInputField,
   TextAreaField,
   RichTextField,
   VisualizationAttr,
@@ -25,12 +24,12 @@ import {
   findAllowedPermission,
 } from "@/commons/constants/allowedPermission";
 import cleanFormData from "@/commons/utils/cleanFormData";
-import akunAlumni from '../services/akunAlumni'
+import verifyAlumni from '../services/verifyAlumni'
 
 import { notifyError } from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
 
-const FormFormBuatAkunAlumni = ({ 
+const FormFormCariAlumni = ({ 
  }) => {
   const { 
     control, 
@@ -45,13 +44,13 @@ const FormFormBuatAkunAlumni = ({
   
   const navigate = useNavigate()
   
-  const create = (data) => {
+  const search = (data) => {
     const cleanData = cleanFormData(data)
-    akunAlumni({
+    verifyAlumni({
       ...cleanData,
     })
     .then(({ data: { data } }) => {
-      navigate(`/buatakunalumni/detail/${data.email}`)
+      navigate(`/verifikasialumni/detail/${data.id}`)
     })
     .catch((error) => {
       console.error(error);
@@ -62,8 +61,8 @@ const FormFormBuatAkunAlumni = ({
   
   return (
 	  <Layouts.FormComponentLayout
-		  title="Form Buat Akun Alumni" 
-		  onSubmit={handleSubmit(create)}
+		  title="Form Cari Alumni" 
+		  onSubmit={handleSubmit(search)}
 	
 	    vas={[
 		  ]}
@@ -71,13 +70,27 @@ const FormFormBuatAkunAlumni = ({
 		  formFields={[
 			  
 			  <Controller
-			    key="email"
-		        name="email"
+		        name="npm"
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
-		            label="Email"
-		            placeholder="Masukkan email"
+		            label="NPM"
+		            placeholder="Masukkan npm"
+		            fieldState={fieldState}
+					{...field}
+					isRequired={false}
+		          />
+		        )}
+		      />
+	,
+			  
+			  <Controller
+		        name="nama"
+		        control={control}
+		        render={({ field, fieldState }) => (
+				  <InputField
+		            label="Nama"
+		            placeholder="Masukkan nama"
 		            fieldState={fieldState}
 					{...field}
 					isRequired={false}
@@ -89,10 +102,10 @@ const FormFormBuatAkunAlumni = ({
 		  ]}
 	
 		  itemsEvents={[
-				<Button key="Create" type="submit" variant="primary">Create</Button>
+				<Button type="submit" variant="primary">Search</Button>
 	    ]}
 	  />
   )
 }
 
-export default FormFormBuatAkunAlumni
+export default FormFormCariAlumni

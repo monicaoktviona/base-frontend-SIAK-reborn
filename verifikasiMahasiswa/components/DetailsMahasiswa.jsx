@@ -1,10 +1,10 @@
 /*
-	Generated on 12/02/2025 by UI Generator PRICES-IDE
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.14
+	version 3.5.10
 */
 import React, { useContext } from 'react';
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useAuth } from '@/commons/auth';
 import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
@@ -13,7 +13,7 @@ import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/com
 import * as Layouts from "@/commons/layouts";
 
 
-const DetailsAkunAlumni = ({ data }) => {
+const DetailsMahasiswa = ({ data }) => {
     const { checkPermission } = useAuth();
     const navigate = useNavigate();
   
@@ -30,6 +30,13 @@ const DetailsAkunAlumni = ({ data }) => {
         }
         ,
         {
+          id: "nPM",
+          condition: "",
+          label: "NPM",
+          featureName: "npm",
+        }
+        ,
+        {
           id: "email",
           condition: "",
           label: "Email",
@@ -37,10 +44,17 @@ const DetailsAkunAlumni = ({ data }) => {
         }
         ,
         {
-          id: "password",
+          id: "tahunAngkatan",
           condition: "",
-          label: "Password",
-          featureName: "password",
+          label: "Tahun Angkatan",
+          featureName: "tahunAngkatan",
+        }
+        ,
+        {
+          id: "statusAkademik",
+          condition: "",
+          label: "Status Akademik",
+          featureName: "statusAkademik",
         }
         
       ]}
@@ -54,4 +68,4 @@ const DetailsAkunAlumni = ({ data }) => {
   );
 };
 
-export default DetailsAkunAlumni;
+export default DetailsMahasiswa;

@@ -3,13 +3,13 @@ import tokenManager from '@/commons/utils/token'
 import environment from '@/commons/utils/environment'
 
 
-const akunAlumni = (data = {}) => {
+const verifyMahasiswa = (data = {}) => {
 	let body = data;
 
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/alumni/akun`, body,
+	return axios.post(`${environment.rootApi}/call/mahasiswa/verify`, body,
 	{
 		params: { token },
 		
@@ -19,4 +19,4 @@ const akunAlumni = (data = {}) => {
 		}
 	})} 
 
-export default akunAlumni
+export default verifyMahasiswa

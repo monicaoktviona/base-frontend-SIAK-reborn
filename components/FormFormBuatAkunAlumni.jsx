@@ -1,11 +1,11 @@
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.5
+	version 3.5.14
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router";
 import {
   Button,
   Form,
@@ -13,6 +13,7 @@ import {
   MultiSelectionField,
   InputField,
   MultiSelectField,
+  RadioInputField,
   TextAreaField,
   RichTextField,
   VisualizationAttr,
@@ -70,6 +71,7 @@ const FormFormBuatAkunAlumni = ({
 		  formFields={[
 			  
 			  <Controller
+			    key="email"
 		        name="email"
 		        control={control}
 		        render={({ field, fieldState }) => (
@@ -87,7 +89,7 @@ const FormFormBuatAkunAlumni = ({
 		  ]}
 	
 		  itemsEvents={[
-				<Button type="submit" variant="primary">Create</Button>
+				<Button key="Create" type="submit" variant="primary">Create</Button>
 	    ]}
 	  />
   )

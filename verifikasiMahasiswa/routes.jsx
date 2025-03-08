@@ -1,9 +1,9 @@
 /*
-	Generated on 22/10/2024 by UI Generator PRICES-IDE
+	Generated on 12/02/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.10
+	version 3.5.14
 */
-import React from 'react';
+import RequireAuth from '@/commons/auth/RequireAuth'
 
 import CariMahasiswa from './containers/CariMahasiswa'
 import DetailMahasiswa from './containers/DetailMahasiswa'

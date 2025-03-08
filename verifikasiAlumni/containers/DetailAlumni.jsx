@@ -1,26 +1,25 @@
 /*
-	Generated on 12/02/2025 by UI Generator PRICES-IDE
+	Generated on 22/10/2024 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.5.14
+	version 3.5.5
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
 import * as Layouts from '@/commons/layouts';
-import { Link, useParams } from "react-router";
+import { Link, useParams } from 'react-router-dom'
 import { HeaderContext } from "@/commons/components"
 
 import DetailsAlumni from '../components/DetailsAlumni'
 import getDetailDataAlumni from '../services/getDetailDataAlumni'
 const DetailAlumni = props => {
-const { id } = useParams()
-
-	const [isLoading, setIsLoading] = useState({
+const [isLoading, setIsLoading] = useState({
 	detailsAlumni: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
 const [detailDataAlumni, setDetailDataAlumni] = useState()
+const { id } = useParams()
 useEffect(() => {
 	const fetchData = async () => {
 		try {
@@ -44,8 +43,7 @@ return (
 			<>
 			<Layouts.ViewContainerBackButtonLayout>
 			  	<Link to={`/verifikasialumni
-			  	`}>
-			  		<Button className="p-4 w-full" variant="secondary">
+			  	`}>	<Button className="p-4 w-full" variant="secondary">
 			  		  Kembali
 			  		</Button>
 			  	</Link>

@@ -50,7 +50,7 @@ const ModifiedFormFormCariMahasiswa = ({
       ...cleanData,
     })
     .then(({ data: { data } }) => {
-      navigate(`/verifikasimahasiswa/detail/${data.id}`)
+      navigate(`/verifikasimahasiswa/detail/${data.}`)
     })
     .catch((error) => {
       console.error(error);
@@ -68,36 +68,7 @@ const ModifiedFormFormCariMahasiswa = ({
 		  ]}
 	
 		  formFields={[
-			  
-			  <Controller
-		        name="npm"
-		        control={control}
-		        render={({ field, fieldState }) => (
-				  <InputField
-		            label="NPM"
-		            placeholder="Masukkan npm"
-		            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
-		        )}
-		      />
-	,
-			  
-			  <Controller
-		        name="nama"
-		        control={control}
-		        render={({ field, fieldState }) => (
-				  <InputField
-		            label="Nama"
-		            placeholder="Masukkan nama"
-		            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
-		        )}
-		      />
-		  ,
+		  
 	
 		  ]}
 	
